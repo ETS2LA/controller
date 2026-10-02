@@ -1,0 +1,275 @@
+from __future__ import annotations
+
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+SPEC = ROOT / "tools" / "controls_spec.txt"
+MAX_INPUTS = 400
+
+KEY_NAMES = {
+    "period": ".", "comma": ",", "space": "Space", "esc": "Esc", "enter": "Enter",
+    "numenter": "Numpad Enter", "lshift": "Left Shift", "rshift": "Right Shift",
+    "lctrl": "Left Ctrl", "rctrl": "Right Ctrl", "tab": "Tab", "caps": "Caps Lock",
+    "pause": "Pause", "scrollock": "Scroll Lock", "pgup": "Page Up", "pgdn": "Page Down",
+    "home": "Home", "end": "End", "del": "Delete", "uarrow": "Up", "darrow": "Down",
+    "larrow": "Left", "rarrow": "Right", "apostrophe": "'", "lbracket": "[",
+    "semicolon": ";", "wheel_up": "Mouse wheel up", "wheel_down": "Mouse wheel down",
+    "button_left": "Left mouse button", "button_right": "Right mouse button",
+    "button_middle": "Middle mouse button",
+}
+
+
+class Control:
+    def __init__(self, scs, name, kind, desc, group):
+        self.scs, self.name, self.kind, self.desc, self.group = scs, name, kind, desc, group
+        self.index = -1
+        self.keys: list[str] = []
+        self.expression = ""
+
+    @property
+    def is_axis(self) -> bool:
+        return self.kind == "A"
+
+    @property
+    def type_name(self) -> str:
+        return "float" if self.is_axis else "bool"
+
+
+def pretty_key(token: str) -> str:
+    dev, key = token.split(".", 1)
+    if key in KEY_NAMES:
+        return KEY_NAMES[key]
+    if dev == "mouse":
+        return "Mouse " + key.replace("_", " ")
+    if key.startswith("key") and key[3:].isdigit():
+        return key[3:]
+    if key.startswith("num") and key[3:].isdigit():
+        return "Numpad " + key[3:]
+    if re.fullmatch(r"f\d+", key):
+        return key.upper()
+    return key.upper() if len(key) == 1 else key
+
+
+def load_spec() -> list[Control]:
+    controls: list[Control] = []
+    group = ""
+    for line_no, raw in enumerate(SPEC.read_text(encoding="utf-8").splitlines(), 1):
+        line = raw.strip()
+        if not line or line.startswith("//"):
+            continue
+        if line.startswith("#"):
+            group = line[2:].strip()
+            continue
+        parts = [p.strip() for p in line.split("|", 3)]
+        if len(parts) != 4 or parts[2] not in ("A", "H", "P"):
+            print(f"{SPEC.name}:{line_no}: malformed line: {raw}")
+            sys.exit(1)
+        controls.append(Control(parts[0], parts[1], parts[2], parts[3], group))
+    return controls
+
+
+def load_sii(path: Path) -> dict[str, str]:
+    mixes: dict[str, str] = {}
+    pattern = re.compile(r'config_lines\[\d+\]: "mix (\S+) `(.*)`"')
+    if not path.exists():
+        print(f"controls.sii not found, copy it from your active game profile to tools/controls.sii")
+        sys.exit(1)
+    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        m = pattern.search(line)
+        if m and "semantical." in m.group(2):
+            mixes[m.group(1)] = m.group(2)
+    return mixes
+
+
+def main() -> None:
+    sii_path = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "tools" / "controls.sii"
+    sii = load_sii(sii_path)
+    spec = load_spec()
+    by_scs = {c.scs: c for c in spec}
+
+    problems = []
+    if len(by_scs) != len(spec):
+        problems.append("duplicate scs names in spec")
+    if len({c.name for c in spec}) != len(spec):
+        problems.append("duplicate public names in spec")
+    problems += [f"in controls.sii but not in spec: {n}" for n in sii if n not in by_scs]
+    problems += [f"in spec but not in controls.sii: {c.scs}" for c in spec if c.scs not in sii]
+    if len(sii) > MAX_INPUTS:
+        problems.append(f"{len(sii)} inputs exceed the SDK limit of {MAX_INPUTS}")
+    for scs, expr in sii.items():
+        derived_axis = bool(re.search(r"abs_max\(|(^|[^\w.])-\s*semantical\.|[+*-]\s*semantical\.", expr))
+        if derived_axis and scs in by_scs and not by_scs[scs].is_axis:
+            problems.append(f"{scs} looks analog in controls.sii but is not kind A in the spec")
+    if problems:
+        print("generation aborted:\n" + "\n".join(problems))
+        sys.exit(1)
+
+    ordered = []
+    for i, (scs, expr) in enumerate(sii.items()):
+        c = by_scs[scs]
+        c.index, c.expression = i, expr
+        c.keys = [pretty_key(t) for t in re.findall(r"(?:keyboard|mouse)\.[a-z0-9_.]+", expr)
+                  if "rel_position" not in t]
+        ordered.append(c)
+
+    write_cpp_header(ordered)
+    write_python(ordered)
+    write_markdown(ordered)
+    axes = sum(c.is_axis for c in ordered)
+    print(f"{len(ordered)} inputs ({axes} axes, {len(ordered) - axes} buttons) generated from {sii_path.name}")
+
+
+def doc_line(c: Control) -> str:
+    key = f", default key: {' / '.join(dict.fromkeys(c.keys))}" if c.keys else ""
+    return f"{c.desc} [SCS mix `{c.scs}`{key}]"
+
+
+def write_cpp_header(controls: list[Control]) -> None:
+    out = [
+        "// Generated by tools/generate.py",
+        "#pragma once",
+        "",
+        "#include <cstdint>",
+        "",
+        "namespace ets2la_controller {",
+        "",
+        f"// Number of inputs the plugin registers with the game.",
+        f"constexpr uint32_t kInputCount = {len(controls)};",
+        f"// Number of analog axes (float inputs).",
+        f"constexpr uint32_t kAxisCount = {sum(c.is_axis for c in controls)};",
+        "",
+        "// Static description of one input, indexed by the numeric value of its Axis/Button enumerator.",
+        "struct ControlInfo {",
+        "    const char* scs_name;  // Name of the semantical mix in controls.sii.",
+        "    const char* name;      // Readable name, identical to the enumerator and the Python attribute.",
+        "    bool is_axis;          // true: float input, false: bool input.",
+        "};",
+        "",
+        "// Analog inputs. Values are floats, clamped to [-1, 1] by the plugin.",
+        "enum class Axis : uint16_t {"
+    ]
+    for c in controls:
+        if c.is_axis:
+            out.append(f"    {c.name} = {c.index},  // {doc_line(c)}")
+    out += ["};", "", "// Digital inputs (true = pressed). Hold inputs use set(), press inputs use press().",
+            "enum class Button : uint16_t {"]
+    for c in controls:
+        if not c.is_axis:
+            tag = "Hold" if c.kind == "H" else "Press"
+            out.append(f"    {c.name} = {c.index},  // [{tag}] {doc_line(c)}")
+    out += ["};", "", "inline constexpr ControlInfo kControls[kInputCount] = {"]
+    for c in controls:
+        out.append(f'    {{"{c.scs}", "{c.name}", {"true" if c.is_axis else "false"}}},')
+    out += ["};", "", "}"]
+    path = ROOT / "include" / "ets2la_controller" / "controls.h"
+    path.write_text("\n".join(out), encoding="utf-8", newline="\n")
+
+
+def write_python(controls: list[Control]) -> None:
+    out = [
+        '"""Generated by tools/generate.py - do not edit by hand."""',
+        "from __future__ import annotations",
+        "",
+        "from enum import IntEnum",
+        "",
+        f"INPUT_COUNT = {len(controls)}",
+        "",
+        "",
+        "class Axis(IntEnum):",
+        '    """Analog inputs (float, clamped to [-1, 1] by the plugin)."""',
+        ""
+    ]
+    for c in controls:
+        if c.is_axis:
+            out += [f"    {c.name} = {c.index}", f'    """{doc_line(c)}"""']
+    out += ["", "", "class Button(IntEnum):", '    """Digital inputs (True = pressed)."""', ""]
+    for c in controls:
+        if not c.is_axis:
+            tag = "Hold" if c.kind == "H" else "Press"
+            out += [f"    {c.name} = {c.index}", f'    """[{tag}] {doc_line(c)}"""']
+    out += ["", "", "NAME_TO_INDEX = {"]
+    for c in controls:
+        out.append(f'    "{c.name}": {c.index},')
+    out += ["}", "", "AXIS_INDICES = frozenset({" +
+            ", ".join(str(c.index) for c in controls if c.is_axis) + "})", "", "",
+            "class _Controls:",
+            '    """Typed attribute access to every input. Writes go straight into shared memory."""',
+            "",
+            "    _v: object  # ctypes uint32 array: bool 0/1 per input",
+            "    _f: object  # ctypes float32 array over the same memory (axes)",
+            ""]
+    for c in controls:
+        tag = {"A": "Axis", "H": "Hold", "P": "Press"}[c.kind]
+        if c.is_axis:
+            out += [
+                "    @property",
+                f"    def {c.name}(self) -> float:",
+                f'        """[{tag}] {doc_line(c)}"""',
+                f"        return self._f[{c.index}]",
+                "",
+                f"    @{c.name}.setter",
+                f"    def {c.name}(self, value: float) -> None:",
+                f"        self._f[{c.index}] = value",
+                ""
+            ]
+        else:
+            out += [
+                "    @property",
+                f"    def {c.name}(self) -> bool:",
+                f'        """[{tag}] {doc_line(c)}"""',
+                f"        return self._v[{c.index}] != 0",
+                "",
+                f"    @{c.name}.setter",
+                f"    def {c.name}(self, value: bool) -> None:",
+                f"        self._v[{c.index}] = 1 if value else 0",
+                ""
+            ]
+    path = ROOT / "python" / "src" / "ets2la_controller" / "_controls.py"
+    path.write_text("\n".join(out), encoding="utf-8", newline="\n")
+
+
+def md_escape(text: str) -> str:
+    return text.replace("|", "\\|")
+
+
+def write_markdown(controls: list[Control]) -> None:
+    axes = sum(c.is_axis for c in controls)
+    out = [
+        "# ets2la_controller",
+        "",
+        "_Generated by `tools/generate.py` from `tools/controls_spec.txt` and the game's `controls.sii`._",
+        "",
+        f"There are **{len(controls)} inputs**: {axes} analog axes (`float`) and {len(controls) - axes} buttons (`bool`).",
+        "",
+        "## How values work",
+        "",
+        "| Type | Python | C++ | Range | Meaning |",
+        "| --- | --- | --- | --- | --- |",
+        "| Axis | `float` | `float`, `Axis::name` | -1.0 to 1.0 | Analog deflection. Pedals and triggers only use 0 to 1, sticks use the full range. |",
+        "| Hold button | `bool` | `bool`, `Button::name` | `False` / `True` | `True` while the control is held down. Set it back to `False` to release it (horn, window, camera movement, ...). |",
+        "| Press button | `bool` | `bool`, `Button::name` | pulse | An action that fires once on the press itself (light toggle, gear up, wiper step, ...). Use `press()`, which delivers exactly one `True` frame and then `False` again. |",
+        "",
+        "**Defaults:** all axes start at `0.0`, all buttons at `False`. When the last client disconnects (or stops sending heartbeats for 3 seconds) the plugin releases every input.",
+        "",
+        "**Descriptions marked `(?)`** were derived from the mix name only and have not been verified.",
+        ""
+    ]
+    groups: dict[str, list[Control]] = {}
+    for c in controls:
+        groups.setdefault(c.group, []).append(c)
+    for name, items in groups.items():
+        out += [f"## {name}", "", "| Name | Type | Kind | Description | SCS mix | Default key |",
+                "| --- | --- | --- | --- | --- | --- |"]
+        for c in items:
+            kind = {"A": "axis", "H": "hold", "P": "press"}[c.kind]
+            key = " / ".join(dict.fromkeys(c.keys)) if c.keys else ""
+            out.append(f"| `{c.name}` | `{c.type_name}` | {kind} | {md_escape(c.desc)} | `{c.scs}` | {md_escape(key)} |")
+        out.append("")
+    path = ROOT / "docs" / "CONTROLS.md"
+    path.write_text("\n".join(out), encoding="utf-8", newline="\n")
+
+
+if __name__ == "__main__":
+    main()
