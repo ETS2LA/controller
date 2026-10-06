@@ -23,4 +23,4 @@ controller.commit()
 * `press(Button.x)` fires a press input exactly once, hold inputs stay down until set to `False`.
 * `wait_frame()` blocks until the game starts its next input frame.
 * `latency()` and `stats()` report the delay between `commit()` and the game.
-* `connected` reports whether the plugin is loaded. If it is not, calls keep retrying in the background.
+* `connected()` reports whether the plugin is loaded. If it is not, calls keep retrying in the background.
