@@ -1,0 +1,328 @@
+// ets2la_controller
+
+// Format:  scs_mix_name | public_name | kind | description
+//   kind:  A = analog axis, H = hold button, P = press button
+//   "(?)" at the end of a description marks a guess.
+
+# Menus and UI navigation
+j_left | ui_left | A | Menu navigation stick, left deflection (0 to 1).
+j_right | ui_right | A | Menu navigation stick, right deflection (0 to 1).
+j_up | ui_up | A | Menu navigation stick, up deflection (0 to 1).
+j_down | ui_down | A | Menu navigation stick, down deflection (0 to 1).
+selectfcs | ui_select | P | Confirm the focused menu entry.
+back | ui_back | P | Go back one menu level.
+skip | ui_skip | P | Skip the current screen or cutscene.
+scrol_up | ui_scroll_up | P | Scroll lists up by one step.
+scrol_dwn | ui_scroll_down | P | Scroll lists down by one step.
+scroll_j_x | ui_scroll_x | A | Analog horizontal scrolling in menus (-1 left, +1 right).
+scroll_j_y | ui_scroll_y | A | Analog vertical scrolling in menus (-1 down, +1 up). (?)
+joy_nav_prv | ui_nav_previous | P | Gamepad menu navigation: previous entry.
+joy_nav_nxt | ui_nav_next | P | Gamepad menu navigation: next entry.
+joy_sec_prv | ui_section_previous | P | Gamepad menu navigation: previous section or tab.
+joy_sec_nxt | ui_section_next | P | Gamepad menu navigation: next section or tab.
+shortcut_1 | shortcut_1 | P | Menu shortcut button 1.
+shortcut_2 | shortcut_2 | P | Menu shortcut button 2.
+shortcut_3 | shortcut_3 | P | Menu shortcut button 3.
+shortcut_4 | shortcut_4 | P | Menu shortcut button 4.
+shortcut_1h | shortcut_1_hold | H | Hold variant of shortcut 1. (?)
+shortcut_2h | shortcut_2_hold | H | Hold variant of shortcut 2. (?)
+shortcut_3h | shortcut_3_hold | H | Hold variant of shortcut 3. (?)
+shortcut_4h | shortcut_4_hold | H | Hold variant of shortcut 4. (?)
+pause | pause | P | Pause or resume the game.
+screenshot | screenshot | P | Take a screenshot.
+activate | activate | P | Confirm or interact.
+menu | menu | P | Open the pause menu or close the current window.
+chat_act | chat_open | P | Open the multiplayer chat input.
+quick_chat | quick_chat | P | Open the multiplayer quick-chat wheel. (?)
+mpptt | push_to_talk | H | Multiplayer push-to-talk while true.
+name_tags | name_tags | P | Toggle player name tags in multiplayer.
+cycl_zoom | zoom_cycle | P | Cycle through the zoom levels of the current view.
+headreset | head_reset | P | Re-center head tracking or VR view.
+menustereo | stereo_menu | P | Toggle the stereo or VR menu mode. (?)
+
+# Map and navigation
+mapzoom_in | map_zoom_in | P | Zoom the map in by one step.
+mapzoom_out | map_zoom_out | P | Zoom the map out by one step.
+j_mappan_x | map_pan_x | A | Pan the map horizontally (-1 left, +1 right).
+j_mappan_y | map_pan_y | A | Pan the map vertically (-1 down, +1 up). (?)
+j_mapzom_in | map_zoom_in_axis | A | Analog map zoom in (0 to 1).
+j_mapzom_out | map_zoom_out_axis | A | Analog map zoom out (0 to 1).
+mapcenter | map_center | P | Re-center the map on the truck.
+navmap | navigation_map | P | Toggle the full-screen navigation map.
+dashmapzoom | dashboard_map_zoom | P | Change the zoom of the dashboard navigation display.
+display | display_cycle | P | Cycle the dashboard display page. (?)
+infotainment | infotainment | P | Toggle the infotainment screen. (?)
+tripreset | trip_reset | P | Reset the trip meter.
+
+# Truck and trailer view
+trs_zoom_in | trs_zoom_in | P | Zoom in by one step in the truck/trailer view.
+trs_zoom_out | trs_zoom_out | P | Zoom out by one step in the truck/trailer view.
+j_trzoom_in | trs_zoom_in_axis | A | Analog zoom in for the truck/trailer view (0 to 1).
+j_trzoom_out | trs_zoom_out_axis | A | Analog zoom out for the truck/trailer view (0 to 1).
+j_tr_cam_res | trs_camera_reset | P | Reset the camera in the truck/trailer view.
+j_tr_cam_swi | trs_camera_switch | P | Switch the camera in the truck/trailer view.
+j_tr_lights | trs_lights | P | Toggle the lights in the truck/trailer view.
+j_tr_fullsc | trs_fullscreen | P | Toggle full-screen in the truck/trailer view.
+j_tr_att_tra | trs_attach_trailer | P | Attach or detach the trailer from the truck/trailer view.
+
+# Cameras
+cam1 | camera_1 | P | Select camera slot 1.
+cam2 | camera_2 | P | Select camera slot 2.
+cam3 | camera_3 | P | Select camera slot 3.
+cam4 | camera_4 | P | Select camera slot 4.
+cam5 | camera_5 | P | Select camera slot 5.
+cam6 | camera_6 | P | Select camera slot 6.
+cam7 | camera_7 | P | Select camera slot 7.
+cam8 | camera_8 | P | Select camera slot 8.
+camcycle | camera_cycle | P | Cycle to the next camera.
+camreset | camera_reset | P | Reset the current camera to its default position.
+camrotate | camera_rotate | H | Rotate the free camera while true.
+camzoomin | camera_zoom_in | P | Zoom the camera in by one step.
+camzoomout | camera_zoom_out | P | Zoom the camera out by one step.
+camzoom | camera_zoom_drag | H | Zoom the camera while true.
+camfwd | camera_move_forward | H | Move the free camera forward.
+camback | camera_move_back | H | Move the free camera backward.
+camleft | camera_move_left | H | Move the free camera left.
+camright | camera_move_right | H | Move the free camera right.
+camup | camera_move_up | H | Move the free camera up.
+camdown | camera_move_down | H | Move the free camera down.
+camlr | camera_look_x | A | Relative camera yaw. (?)
+camud | camera_look_y | A | Relative camera pitch. (?)
+j_cam_lk_lr | camera_look_lr | A | Camera look left/right stick (-1 left, +1 right).
+j_cam_lk_ud | camera_look_ud | A | Camera look up/down stick (-1 down, +1 up). (?)
+j_cam_mv_lr | camera_move_lr | A | Free camera move left/right stick (-1 left, +1 right).
+j_cam_mv_ud | camera_move_ud | A | Free camera move forward/back stick (-1 back, +1 forward). (?)
+lookleft | look_left | H | Look left while true.
+lookright | look_right | H | Look right while true.
+lookpos1 | look_position_1 | P | Snap the head look to preset 1.
+lookpos2 | look_position_2 | P | Snap the head look to preset 2.
+lookpos3 | look_position_3 | P | Snap the head look to preset 3.
+lookpos4 | look_position_4 | P | Snap the head look to preset 4.
+lookpos5 | look_position_5 | P | Snap the head look to preset 5.
+lookpos6 | look_position_6 | P | Snap the head look to preset 6.
+lookpos7 | look_position_7 | P | Snap the head look to preset 7.
+lookpos8 | look_position_8 | P | Snap the head look to preset 8.
+lookpos9 | look_position_9 | P | Snap the head look to preset 9.
+looksteer | look_steer | H | Head follows the steering direction while true. (?)
+lookblink | look_blinker | H | Head looks toward the active blinker side while true. (?)
+showmirrors | show_mirrors | P | Toggle the mirror views. (?)
+showhud | show_hud | P | Toggle the HUD.
+
+# Driving
+steering | steering | A | Steering, -1 = full left, +1 = full right.
+aforward | throttle | A | Throttle pedal, 0 = released, 1 = full. (?)
+abackward | brake | A | Service brake pedal, 0 = released, 1 = full.
+clutch | clutch | A | Clutch pedal, 0 = released, 1 = fully pressed.
+horn | horn | H | Horn while true.
+airhorn | air_horn | H | Air horn while true.
+lighthorn | light_flash | H | Flash the headlights while true.
+parkingbrake | parking_brake | P | Toggle the parking brake.
+handbrake | handbrake | H | Hand brake while true. (?)
+trailerbrake | trailer_brake | H | Trailer brake only, while true.
+motorbrake | motor_brake | H | Engine brake while true. (?)
+embrake | embrake | P | EM brake toggle. (?)
+engbraketog | engine_brake_toggle | P | Toggle the engine brake.
+engbrakeup | engine_brake_up | P | Engine brake: next stronger level.
+engbrakedwn | engine_brake_down | P | Engine brake: next weaker level.
+engbrakeauto | engine_brake_auto | P | Toggle automatic engine brake.
+retarderup | retarder_up | P | Retarder: next stronger level.
+retarderdown | retarder_down | P | Retarder: next weaker level.
+retarder0 | retarder_0 | P | Set retarder to level 0.
+retarder1 | retarder_1 | P | Set retarder to level 1.
+retarder2 | retarder_2 | P | Set retarder to level 2.
+retarder3 | retarder_3 | P | Set retarder to level 3.
+retarder4 | retarder_4 | P | Set retarder to level 4.
+retarder5 | retarder_5 | P | Set retarder to level 5.
+retarderauto | retarder_auto | P | Toggle automatic retarder.
+cruiectrl | cruise_control | P | Toggle cruise control.
+cruiectrlinc | cruise_control_increase | P | Increase the cruise control speed.
+cruiectrldec | cruise_control_decrease | P | Decrease the cruise control speed.
+cruiectrlres | cruise_control_resume | P | Resume cruise control at the last set speed.
+accmode | acc_mode | P | Switch the adaptive cruise control mode. (?)
+laneassist | lane_assist | P | Toggle lane assist.
+laneassmode | lane_assist_mode | P | Switch the lane assist mode. (?)
+tranpwrmode | transmission_power_mode | P | Switch the transmission power mode. (?)
+quickpark | quick_park | P | Quick-park the truck.
+acaquickr | aca_quick_reset | P | Advanced coupling assistant quick action. (?)
+diflock | differential_lock | P | Toggle the differential lock.
+liftaxle | lift_axle | P | Raise or lower the truck lift axle.
+liftaxlet | lift_axle_trailer | P | Raise or lower the trailer lift axle.
+slideaxlefwd | slide_axle_forward | H | Slide the trailer axles forward while true.
+slideaxlebwd | slide_axle_backward | H | Slide the trailer axles backward while true.
+slideaxleman | slide_axle_manual | P | Toggle manual trailer axle sliding. (?)
+attach | attach_trailer | P | Attach or detach the trailer.
+
+# Engine and ignition
+engine | engine_toggle | P | Toggle the engine on or off.
+engineelect | engine_electrics | P | Toggle the truck electrics. (?)
+ignitionoff | ignition_off | P | Turn the ignition off.
+ignitionon | ignition_on | P | Turn the ignition on.
+ignitionstrt | ignition_start | H | Crank the starter while true.
+
+# Gearbox
+gearup | gear_up | P | Shift up one gear.
+geardown | gear_down | P | Shift down one gear.
+gear0 | gear_neutral | P | Shift to neutral.
+geardrive | gear_drive | P | Shift to drive.
+gearreverse | gear_reverse | P | Shift to reverse.
+gearuphint | gear_up_hint | P | Shift up using the shift hint. (?)
+geardownhint | gear_down_hint | P | Shift down using the shift hint. (?)
+transemi | transmission_semi | P | Toggle the semi-automatic transmission mode. (?)
+drive | drive | P | Select drive.
+reverse | reverse | P | Select reverse.
+gearsel1on | gear_selector_1_on | P | Gear selector 1 on. (?)
+gearsel1off | gear_selector_1_off | P | Gear selector 1 off. (?)
+gearsel1tgl | gear_selector_1_toggle | P | Gear selector 1 toggle. (?)
+gearsel2on | gear_selector_2_on | P | Gear selector 2 on. (?)
+gearsel2off | gear_selector_2_off | P | Gear selector 2 off. (?)
+gearsel2tgl | gear_selector_2_toggle | P | Gear selector 2 toggle. (?)
+gear1 | gear_1 | P | Select gear 1 directly.
+gear2 | gear_2 | P | Select gear 2 directly.
+gear3 | gear_3 | P | Select gear 3 directly.
+gear4 | gear_4 | P | Select gear 4 directly.
+gear5 | gear_5 | P | Select gear 5 directly.
+gear6 | gear_6 | P | Select gear 6 directly.
+gear7 | gear_7 | P | Select gear 7 directly.
+gear8 | gear_8 | P | Select gear 8 directly.
+gear9 | gear_9 | P | Select gear 9 directly.
+gear10 | gear_10 | P | Select gear 10 directly.
+gear11 | gear_11 | P | Select gear 11 directly.
+gear12 | gear_12 | P | Select gear 12 directly.
+gear13 | gear_13 | P | Select gear 13 directly.
+gear14 | gear_14 | P | Select gear 14 directly.
+gear15 | gear_15 | P | Select gear 15 directly.
+gear16 | gear_16 | P | Select gear 16 directly.
+
+# Suspension
+frontsuspup | suspension_front_up | P | Raise the front suspension.
+frontsuspdwn | suspension_front_down | P | Lower the front suspension.
+rearsuspup | suspension_rear_up | P | Raise the rear suspension.
+rearsuspdwn | suspension_rear_down | P | Lower the rear suspension.
+suspreset | suspension_reset | P | Reset the suspension to its default height.
+trlrsuspup | trailer_suspension_up | P | Raise the trailer suspension.
+trlrsuspdwn | trailer_suspension_down | P | Lower the trailer suspension.
+
+# Lights and blinkers
+light | lights_cycle | P | Cycle the lights.
+lightoff | lights_off | P | Lights off.
+lightpark | lights_parking | P | Parking lights.
+lighton | lights_on | P | Low beam on.
+hblight | high_beam | P | Toggle the high beams.
+beacon | beacon | P | Toggle the roof beacon.
+lblinker | blinker_left | P | Left blinker toggle.
+lblinkerh | blinker_left_hold | H | Left blinker while true. (?)
+rblinker | blinker_right | P | Right blinker toggle.
+rblinkerh | blinker_right_hold | H | Right blinker while true. (?)
+flasher4way | hazard_lights | P | Toggle the hazard lights.
+
+# Wipers
+wipers | wipers_step_up | P | Step the wipers to the next higher level.
+wipersback | wipers_step_down | P | Step the wipers to the next lower level.
+wipers0 | wipers_level_0 | P | Set the wipers directly to level 0.
+wipers1 | wipers_level_1 | P | Set the wipers directly to level 1.
+wipers2 | wipers_level_2 | P | Set the wipers directly to level 2.
+wipers3 | wipers_level_3 | P | Set the wipers directly to level 3.
+wipers4 | wipers_level_4 | P | Set the wipers directly to level 4.
+
+# Windows and mirrors
+rwinopen | window_right_open | H | Open the right window while true.
+rwinclose | window_right_close | H | Close the right window while true.
+lwinopen | window_left_open | H | Open the left window while true.
+lwinclose | window_left_close | H | Close the left window while true.
+cmirrorsel | mirror_select_cabin | P | Select the cabin mirror for adjusting. (?)
+fmirrorsel | mirror_select_front | P | Select the front mirror for adjusting. (?)
+mirroryawl | mirror_yaw_left | H | Turn the selected mirror left while true.
+mirroryawr | mirror_yaw_right | H | Turn the selected mirror right while true.
+mirrorpitu | mirror_pitch_up | H | Tilt the selected mirror up while true.
+mirrorpitl | mirror_pitch_down | H | Tilt the selected mirror down while true. (?)
+mirrorreset | mirror_reset | P | Reset the selected mirror.
+adjuster | adjuster | P | Open the seat/mirror/light adjuster.
+adj_seats | adjust_seats | P | Adjuster: seats.
+adj_mirrors | adjust_mirrors | P | Adjuster: mirrors.
+adj_lights | adjust_lights | P | Adjuster: lights.
+adj_uimirror | adjust_ui_mirror | P | Adjuster: UI mirror. (?)
+
+# Radio
+radio | radio | P | Toggle the radio on or off.
+radionext | radio_next | P | Next radio station.
+radioprev | radio_previous | P | Previous radio station.
+radioup | radio_up | P | Radio up, volume or station. (?)
+radiodown | radio_down | P | Radio down, volume or station. (?)
+
+# Save, load and quick menus
+quicksave | quick_save | P | Quick-save the game.
+quickload | quick_load | P | Quick-load the last quick-save.
+quicksel1 | quick_select_1 | P | Quick-select slot 1.
+quicksel2 | quick_select_2 | P | Quick-select slot 2.
+quicksel3 | quick_select_3 | P | Quick-select slot 3.
+quicksel4 | quick_select_4 | P | Quick-select slot 4.
+quicksel5 | quick_select_5 | P | Quick-select slot 5.
+quicksel6 | quick_select_6 | P | Quick-select slot 6.
+quicksel7 | quick_select_7 | P | Quick-select slot 7.
+quicksel8 | quick_select_8 | P | Quick-select slot 8.
+sb_activate | sidebar_activate | P | Activate the sidebar panel. (?)
+sb_swap | sidebar_swap | P | Swap the sidebar panel. (?)
+
+# Advisor and assists
+advmouse | advisor_mouse | P | Advisor: toggle mouse control. (?)
+advetamode | advisor_eta_mode | P | Advisor: switch the ETA mode. (?)
+gar_man | garage_manager | P | Open the garage manager. (?)
+advzoomin | advisor_zoom_in | P | Advisor: zoom in. (?)
+advzoomout | advisor_zoom_out | P | Advisor: zoom out. (?)
+advoptions | advisor_options | P | Advisor: open the options.
+services | advisor_services | P | Advisor: open the services.
+assistact1 | assist_action_1 | P | Driving assist action 1. (?)
+assistact2 | assist_action_2 | P | Driving assist action 2. (?)
+assistact3 | assist_action_3 | P | Driving assist action 3. (?)
+assistact4 | assist_action_4 | P | Driving assist action 4. (?)
+assistact5 | assist_action_5 | P | Driving assist action 5. (?)
+
+# Photo mode
+photo_mode | photo_mode | P | Enter or leave photo mode.
+photores | photo_reset | P | Reset the photo camera.
+photomove | photo_move | H | Move the photo camera while true. (?)
+phototake | photo_grab | H | Grab and rotate the photo camera while true. (?)
+photofwd | photo_forward | H | Photo camera forward.
+photobwd | photo_backward | H | Photo camera backward.
+photoleft | photo_left | H | Photo camera left.
+photoright | photo_right | H | Photo camera right.
+photoup | photo_up | H | Photo camera up.
+photodown | photo_down | H | Photo camera down.
+photorolll | photo_roll_left | H | Roll the photo camera left.
+photorollr | photo_roll_right | H | Roll the photo camera right.
+photosman | photo_manager | P | Open the photo manager. (?)
+photo_opts | photo_options | P | Open the photo options.
+photosnap | photo_snap | P | Take the photo.
+photo_hctrl | photo_hide_controls | P | Hide or show the photo mode controls.
+photonames | photo_names | P | Toggle names in photo mode. (?)
+photozoomout | photo_zoom_out | P | Photo camera zoom out by one step.
+photozoomin | photo_zoom_in | P | Photo camera zoom in by one step.
+phot_z_j_out | photo_zoom_out_axis | A | Analog photo camera zoom out (0 to 1).
+phot_z_j_in | photo_zoom_in_axis | A | Analog photo camera zoom in (0 to 1).
+
+# Photo album
+album_pgup | album_page_up | P | Album: previous page.
+album_pgdn | album_page_down | P | Album: next page.
+album_itup | album_item_up | P | Album: move the selection up.
+album_itdn | album_item_down | P | Album: move the selection down.
+album_itlf | album_item_left | P | Album: move the selection left.
+album_itrg | album_item_right | P | Album: move the selection right.
+album_ithm | album_item_home | P | Album: jump to the first item.
+album_iten | album_item_end | P | Album: jump to the last item.
+album_itac | album_item_activate | P | Album: open the selected item.
+album_itop | album_item_options | P | Album: options for the selected item. (?)
+album_itdl | album_item_delete | P | Album: delete the selected item.
+
+# Walking camera
+camwalk_for | walk_forward | H | Walk forward.
+camwalk_back | walk_backward | H | Walk backward.
+camwalk_righ | walk_right | H | Walk right.
+camwalk_left | walk_left | H | Walk left.
+camwalk_run | walk_run | H | Run while true.
+camwalk_jump | walk_jump | P | Jump.
+camwalk_crou | walk_crouch | H | Crouch while true.
+camwalk_lr | walk_look_lr | A | Walking camera look left/right. (?)
+camwalk_ud | walk_look_ud | A | Walking camera look up/down. (?)
+
+# Replay
+replayhidec | replay_hide_controls | P | Hide or show the replay controls.

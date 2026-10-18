@@ -1,2 +1,4 @@
-.vscode
-build
+build/
+__pycache__/
+*.egg-info/
+tools/controls.sii
