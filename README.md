@@ -1,3 +1,5 @@
+<sub>**NOTE**: This repository has undergone a major rewrite since the initial release by mimi. If you're looking for the latest version of that initial release, you can find that in the `legacy` branch.</sub>
+
 # ets2la_controller
 
 In-process input injection for Euro Truck Simulator 2 / American Truck Simulator.
