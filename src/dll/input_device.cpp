@@ -112,6 +112,7 @@ private:
         const uint32_t value = self->pendingValue_[self->cursor_];
         ++self->cursor_;
 
+        self->sent_[index] = value;
         event->input_index = index;
         if (kControls[index].is_axis) {
             std::memcpy(&event->value_float.value, &value, sizeof(float));
@@ -155,7 +156,6 @@ private:
                 target = (clients && (raw != 0 || pulsed)) ? 1u : 0u;
             }
             if (sendAll || target != sent_[i]) {
-                sent_[i] = target;
                 pendingIndex_[count] = uint16_t(i);
                 pendingValue_[count] = target;
                 ++count;
