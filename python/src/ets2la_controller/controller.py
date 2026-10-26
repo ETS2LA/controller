@@ -330,7 +330,7 @@ class Controller(_Controls):
     def _connect(self) -> bool:
         h = kernel32.OpenFileMappingW(FILE_MAP_READ | FILE_MAP_WRITE, False, MAPPING_NAME)
         if not h:
-            return self._fail("controller not running (OpenFileMapping failed). Is ets2la_controller.dll loaded?")
+            return False
         addr = kernel32.MapViewOfFile(h, FILE_MAP_READ | FILE_MAP_WRITE, 0, 0, TOTAL_BYTES)
         if not addr:
             kernel32.CloseHandle(h)

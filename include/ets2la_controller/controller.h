@@ -194,7 +194,7 @@ public:
         disconnect();
         map_ = OpenFileMappingW(FILE_MAP_READ | FILE_MAP_WRITE, FALSE, kMappingName);
         if (!map_) {
-            return fail("controller not running (OpenFileMapping failed). Is ets2la_controller.dll loaded?");
+            return false;
         }
         base_ = static_cast<uint8_t*>(MapViewOfFile(map_, FILE_MAP_READ | FILE_MAP_WRITE, 0, 0, kTotalBytes));
         if (!base_) {
