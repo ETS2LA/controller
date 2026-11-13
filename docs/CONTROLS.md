@@ -44,12 +44,12 @@ There are **287 inputs**: 26 analog axes (`float`) and 261 buttons (`bool`).
 | `shortcut_4` | `bool` | press | Menu shortcut button 4. | `shortcut_4` |  |
 | `shortcut_4_hold` | `bool` | hold | Hold variant of shortcut 4. (?) | `shortcut_4h` |  |
 | `pause` | `bool` | press | Pause or resume the game. | `pause` | Pause |
-| `screenshot` | `bool` | press | Take a screenshot. | `screenshot` |  |
+| `screenshot` | `bool` | press | Take a screenshot. | `screenshot` | F10 |
 | `activate` | `bool` | press | Confirm or interact. | `activate` | Enter / Numpad Enter |
 | `menu` | `bool` | press | Open the pause menu or close the current window. | `menu` | Esc |
-| `push_to_talk` | `bool` | hold | Multiplayer push-to-talk while true. | `mpptt` |  |
+| `push_to_talk` | `bool` | hold | Multiplayer push-to-talk while true. | `mpptt` | X |
 | `chat_open` | `bool` | press | Open the multiplayer chat input. | `chat_act` | Y |
-| `quick_chat` | `bool` | press | Open the multiplayer quick-chat wheel. (?) | `quick_chat` |  |
+| `quick_chat` | `bool` | press | Open the multiplayer quick-chat wheel. (?) | `quick_chat` | Q |
 | `zoom_cycle` | `bool` | press | Cycle through the zoom levels of the current view. | `cycl_zoom` | Tab |
 | `name_tags` | `bool` | press | Toggle player name tags in multiplayer. | `name_tags` | Z |
 | `head_reset` | `bool` | press | Re-center head tracking or VR view. | `headreset` | F12 |
@@ -110,8 +110,8 @@ There are **287 inputs**: 26 analog axes (`float`) and 261 buttons (`bool`).
 | `camera_move_right` | `bool` | hold | Move the free camera right. | `camright` | Numpad 6 |
 | `camera_move_up` | `bool` | hold | Move the free camera up. | `camup` | Numpad 9 |
 | `camera_move_down` | `bool` | hold | Move the free camera down. | `camdown` | Numpad 3 |
-| `look_left` | `bool` | hold | Look left while true. | `lookleft` |  |
-| `look_right` | `bool` | hold | Look right while true. | `lookright` |  |
+| `look_left` | `bool` | hold | Look left while true. | `lookleft` | Numpad / |
+| `look_right` | `bool` | hold | Look right while true. | `lookright` | Numpad * |
 | `camera_look_x` | `float` | axis | Relative camera yaw. (?) | `camlr` |  |
 | `camera_look_y` | `float` | axis | Relative camera pitch. (?) | `camud` |  |
 | `camera_look_lr` | `float` | axis | Camera look left/right stick (-1 left, +1 right). | `j_cam_lk_lr` |  |
@@ -142,27 +142,27 @@ There are **287 inputs**: 26 analog axes (`float`) and 261 buttons (`bool`).
 | `clutch` | `float` | axis | Clutch pedal, 0 = released, 1 = fully pressed. | `clutch` |  |
 | `attach_trailer` | `bool` | press | Attach or detach the trailer. | `attach` | T |
 | `horn` | `bool` | hold | Horn while true. | `horn` | H |
-| `air_horn` | `bool` | hold | Air horn while true. | `airhorn` |  |
-| `light_flash` | `bool` | hold | Flash the headlights while true. | `lighthorn` |  |
-| `motor_brake` | `bool` | hold | Engine brake while true. (?) | `motorbrake` |  |
+| `air_horn` | `bool` | hold | Air horn while true. | `airhorn` | N |
+| `light_flash` | `bool` | hold | Flash the headlights while true. | `lighthorn` | J |
+| `motor_brake` | `bool` | hold | Engine brake while true. (?) | `motorbrake` | B |
 | `engine_brake_toggle` | `bool` | press | Toggle the engine brake. | `engbraketog` |  |
 | `engine_brake_up` | `bool` | press | Engine brake: next stronger level. | `engbrakeup` |  |
 | `engine_brake_down` | `bool` | press | Engine brake: next weaker level. | `engbrakedwn` |  |
 | `trailer_brake` | `bool` | hold | Trailer brake only, while true. | `trailerbrake` |  |
-| `retarder_up` | `bool` | press | Retarder: next stronger level. | `retarderup` |  |
-| `retarder_down` | `bool` | press | Retarder: next weaker level. | `retarderdown` |  |
+| `retarder_up` | `bool` | press | Retarder: next stronger level. | `retarderup` | ; |
+| `retarder_down` | `bool` | press | Retarder: next weaker level. | `retarderdown` | ' |
 | `retarder_0` | `bool` | press | Set retarder to level 0. | `retarder0` |  |
 | `retarder_1` | `bool` | press | Set retarder to level 1. | `retarder1` |  |
 | `retarder_2` | `bool` | press | Set retarder to level 2. | `retarder2` |  |
 | `retarder_3` | `bool` | press | Set retarder to level 3. | `retarder3` |  |
 | `retarder_4` | `bool` | press | Set retarder to level 4. | `retarder4` |  |
 | `retarder_5` | `bool` | press | Set retarder to level 5. | `retarder5` |  |
-| `lift_axle` | `bool` | press | Raise or lower the truck lift axle. | `liftaxle` |  |
+| `lift_axle` | `bool` | press | Raise or lower the truck lift axle. | `liftaxle` | U |
 | `lift_axle_trailer` | `bool` | press | Raise or lower the trailer lift axle. | `liftaxlet` |  |
 | `slide_axle_forward` | `bool` | hold | Slide the trailer axles forward while true. | `slideaxlefwd` |  |
 | `slide_axle_backward` | `bool` | hold | Slide the trailer axles backward while true. | `slideaxlebwd` |  |
 | `slide_axle_manual` | `bool` | press | Toggle manual trailer axle sliding. (?) | `slideaxleman` |  |
-| `differential_lock` | `bool` | press | Toggle the differential lock. | `diflock` | R |
+| `differential_lock` | `bool` | press | Toggle the differential lock. | `diflock` | V |
 | `engine_brake_auto` | `bool` | press | Toggle automatic engine brake. | `engbrakeauto` |  |
 | `retarder_auto` | `bool` | press | Toggle automatic retarder. | `retarderauto` |  |
 | `embrake` | `bool` | press | EM brake toggle. (?) | `embrake` |  |
@@ -170,7 +170,7 @@ There are **287 inputs**: 26 analog axes (`float`) and 261 buttons (`bool`).
 | `transmission_power_mode` | `bool` | press | Switch the transmission power mode. (?) | `tranpwrmode` |  |
 | `parking_brake` | `bool` | press | Toggle the parking brake. | `parkingbrake` | Space |
 | `handbrake` | `bool` | hold | Hand brake while true. (?) | `handbrake` |  |
-| `cruise_control` | `bool` | press | Toggle cruise control. | `cruiectrl` |  |
+| `cruise_control` | `bool` | press | Toggle cruise control. | `cruiectrl` | C |
 | `cruise_control_increase` | `bool` | press | Increase the cruise control speed. | `cruiectrlinc` |  |
 | `cruise_control_decrease` | `bool` | press | Decrease the cruise control speed. | `cruiectrldec` |  |
 | `cruise_control_resume` | `bool` | press | Resume cruise control at the last set speed. | `cruiectrlres` |  |
@@ -183,7 +183,7 @@ There are **287 inputs**: 26 analog axes (`float`) and 261 buttons (`bool`).
 
 | Name | Type | Kind | Description | SCS mix | Default key |
 | --- | --- | --- | --- | --- | --- |
-| `engine_toggle` | `bool` | press | Toggle the engine on or off. | `engine` | C |
+| `engine_toggle` | `bool` | press | Toggle the engine on or off. | `engine` | E |
 | `engine_electrics` | `bool` | press | Toggle the truck electrics. (?) | `engineelect` |  |
 | `ignition_off` | `bool` | press | Turn the ignition off. | `ignitionoff` |  |
 | `ignition_on` | `bool` | press | Turn the ignition on. | `ignitionon` |  |
@@ -205,26 +205,26 @@ There are **287 inputs**: 26 analog axes (`float`) and 261 buttons (`bool`).
 
 | Name | Type | Kind | Description | SCS mix | Default key |
 | --- | --- | --- | --- | --- | --- |
-| `beacon` | `bool` | press | Toggle the roof beacon. | `beacon` |  |
+| `beacon` | `bool` | press | Toggle the roof beacon. | `beacon` | O |
 | `lights_cycle` | `bool` | press | Cycle the lights. | `light` | L |
 | `lights_off` | `bool` | press | Lights off. | `lightoff` |  |
 | `lights_parking` | `bool` | press | Parking lights. | `lightpark` |  |
 | `lights_on` | `bool` | press | Low beam on. | `lighton` |  |
 | `high_beam` | `bool` | press | Toggle the high beams. | `hblight` | K |
-| `blinker_left` | `bool` | press | Left blinker toggle. | `lblinker` | Q |
+| `blinker_left` | `bool` | press | Left blinker toggle. | `lblinker` | [ |
 | `blinker_left_hold` | `bool` | hold | Left blinker while true. (?) | `lblinkerh` |  |
-| `blinker_right` | `bool` | press | Right blinker toggle. | `rblinker` | E |
+| `blinker_right` | `bool` | press | Right blinker toggle. | `rblinker` | ] |
 | `blinker_right_hold` | `bool` | hold | Right blinker while true. (?) | `rblinkerh` |  |
-| `hazard_lights` | `bool` | press | Toggle the hazard lights. | `flasher4way` | x56 |
+| `hazard_lights` | `bool` | press | Toggle the hazard lights. | `flasher4way` | F |
 
 ## Windows and mirrors
 
 | Name | Type | Kind | Description | SCS mix | Default key |
 | --- | --- | --- | --- | --- | --- |
-| `window_right_open` | `bool` | hold | Open the right window while true. | `rwinopen` | ' |
-| `window_right_close` | `bool` | hold | Close the right window while true. | `rwinclose` | [ |
-| `window_left_open` | `bool` | hold | Open the left window while true. | `lwinopen` | ; |
-| `window_left_close` | `bool` | hold | Close the left window while true. | `lwinclose` | P |
+| `window_right_open` | `bool` | hold | Open the right window while true. | `rwinopen` |  |
+| `window_right_close` | `bool` | hold | Close the right window while true. | `rwinclose` |  |
+| `window_left_open` | `bool` | hold | Open the left window while true. | `lwinopen` |  |
+| `window_left_close` | `bool` | hold | Close the left window while true. | `lwinclose` |  |
 | `mirror_select_cabin` | `bool` | press | Select the cabin mirror for adjusting. (?) | `cmirrorsel` |  |
 | `mirror_select_front` | `bool` | press | Select the front mirror for adjusting. (?) | `fmirrorsel` |  |
 | `mirror_yaw_left` | `bool` | hold | Turn the selected mirror left while true. | `mirroryawl` |  |
@@ -242,8 +242,8 @@ There are **287 inputs**: 26 analog axes (`float`) and 261 buttons (`bool`).
 
 | Name | Type | Kind | Description | SCS mix | Default key |
 | --- | --- | --- | --- | --- | --- |
-| `wipers_step_up` | `bool` | press | Step the wipers to the next higher level. | `wipers` | . |
-| `wipers_step_down` | `bool` | press | Step the wipers to the next lower level. | `wipersback` | , |
+| `wipers_step_up` | `bool` | press | Step the wipers to the next higher level. | `wipers` | P |
+| `wipers_step_down` | `bool` | press | Step the wipers to the next lower level. | `wipersback` |  |
 | `wipers_level_0` | `bool` | press | Set the wipers directly to level 0. | `wipers0` |  |
 | `wipers_level_1` | `bool` | press | Set the wipers directly to level 1. | `wipers1` |  |
 | `wipers_level_2` | `bool` | press | Set the wipers directly to level 2. | `wipers2` |  |
@@ -254,7 +254,7 @@ There are **287 inputs**: 26 analog axes (`float`) and 261 buttons (`bool`).
 
 | Name | Type | Kind | Description | SCS mix | Default key |
 | --- | --- | --- | --- | --- | --- |
-| `photo_mode` | `bool` | press | Enter or leave photo mode. | `photo_mode` |  |
+| `photo_mode` | `bool` | press | Enter or leave photo mode. | `photo_mode` | = |
 | `photo_reset` | `bool` | press | Reset the photo camera. | `photores` | R |
 | `photo_move` | `bool` | hold | Move the photo camera while true. (?) | `photomove` | Right mouse button |
 | `photo_grab` | `bool` | hold | Grab and rotate the photo camera while true. (?) | `phototake` | Left mouse button |
@@ -297,7 +297,7 @@ There are **287 inputs**: 26 analog axes (`float`) and 261 buttons (`bool`).
 
 | Name | Type | Kind | Description | SCS mix | Default key |
 | --- | --- | --- | --- | --- | --- |
-| `radio` | `bool` | press | Toggle the radio on or off. | `radio` |  |
+| `radio` | `bool` | press | Toggle the radio on or off. | `radio` | R |
 | `radio_next` | `bool` | press | Next radio station. | `radionext` | Page Down |
 | `radio_previous` | `bool` | press | Previous radio station. | `radioprev` | Page Up |
 | `radio_up` | `bool` | press | Radio up, volume or station. (?) | `radioup` |  |

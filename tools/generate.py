@@ -10,11 +10,12 @@ MAX_INPUTS = 400
 
 KEY_NAMES = {
     "period": ".", "comma": ",", "space": "Space", "esc": "Esc", "enter": "Enter",
-    "numenter": "Numpad Enter", "lshift": "Left Shift", "rshift": "Right Shift",
-    "lctrl": "Left Ctrl", "rctrl": "Right Ctrl", "tab": "Tab", "caps": "Caps Lock",
-    "pause": "Pause", "scrollock": "Scroll Lock", "pgup": "Page Up", "pgdn": "Page Down",
-    "home": "Home", "end": "End", "del": "Delete", "uarrow": "Up", "darrow": "Down",
-    "larrow": "Left", "rarrow": "Right", "apostrophe": "'", "lbracket": "[",
+    "numenter": "Numpad Enter", "numslash": "Numpad /", "nummultiply": "Numpad *",
+    "equal": "=", "lshift": "Left Shift", "rshift": "Right Shift", "lctrl": "Left Ctrl",
+    "rctrl": "Right Ctrl", "tab": "Tab", "caps": "Caps Lock", "pause": "Pause",
+    "scrollock": "Scroll Lock", "pgup": "Page Up", "pgdn": "Page Down", "home": "Home",
+    "end": "End", "del": "Delete", "uarrow": "Up", "darrow": "Down", "larrow": "Left",
+    "rarrow": "Right", "apostrophe": "'", "lbracket": "[", "rbracket": "]",
     "semicolon": ";", "wheel_up": "Mouse wheel up", "wheel_down": "Mouse wheel down",
     "button_left": "Left mouse button", "button_right": "Right mouse button",
     "button_middle": "Middle mouse button",

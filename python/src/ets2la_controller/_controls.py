@@ -111,7 +111,7 @@ class Button(IntEnum):
     pause = 27
     """[Press] Pause or resume the game. [SCS mix `pause`, default key: Pause]"""
     screenshot = 28
-    """[Press] Take a screenshot. [SCS mix `screenshot`]"""
+    """[Press] Take a screenshot. [SCS mix `screenshot`, default key: F10]"""
     camera_1 = 29
     """[Press] Select camera slot 1. [SCS mix `cam1`, default key: 1]"""
     camera_2 = 30
@@ -153,9 +153,9 @@ class Button(IntEnum):
     camera_move_down = 48
     """[Hold] Move the free camera down. [SCS mix `camdown`, default key: Numpad 3]"""
     look_left = 49
-    """[Hold] Look left while true. [SCS mix `lookleft`]"""
+    """[Hold] Look left while true. [SCS mix `lookleft`, default key: Numpad /]"""
     look_right = 50
-    """[Hold] Look right while true. [SCS mix `lookright`]"""
+    """[Hold] Look right while true. [SCS mix `lookright`, default key: Numpad *]"""
     trs_camera_reset = 59
     """[Press] Reset the camera in the truck/trailer view. [SCS mix `j_tr_cam_res`, default key: R]"""
     trs_camera_switch = 60
@@ -193,7 +193,7 @@ class Button(IntEnum):
     menu = 84
     """[Press] Open the pause menu or close the current window. [SCS mix `menu`, default key: Esc]"""
     engine_toggle = 85
-    """[Press] Toggle the engine on or off. [SCS mix `engine`, default key: C]"""
+    """[Press] Toggle the engine on or off. [SCS mix `engine`, default key: E]"""
     engine_electrics = 86
     """[Press] Toggle the truck electrics. (?) [SCS mix `engineelect`]"""
     ignition_off = 87
@@ -217,13 +217,13 @@ class Button(IntEnum):
     horn = 96
     """[Hold] Horn while true. [SCS mix `horn`, default key: H]"""
     air_horn = 97
-    """[Hold] Air horn while true. [SCS mix `airhorn`]"""
+    """[Hold] Air horn while true. [SCS mix `airhorn`, default key: N]"""
     light_flash = 98
-    """[Hold] Flash the headlights while true. [SCS mix `lighthorn`]"""
+    """[Hold] Flash the headlights while true. [SCS mix `lighthorn`, default key: J]"""
     beacon = 99
-    """[Press] Toggle the roof beacon. [SCS mix `beacon`]"""
+    """[Press] Toggle the roof beacon. [SCS mix `beacon`, default key: O]"""
     motor_brake = 100
-    """[Hold] Engine brake while true. (?) [SCS mix `motorbrake`]"""
+    """[Hold] Engine brake while true. (?) [SCS mix `motorbrake`, default key: B]"""
     engine_brake_toggle = 101
     """[Press] Toggle the engine brake. [SCS mix `engbraketog`]"""
     engine_brake_up = 102
@@ -233,9 +233,9 @@ class Button(IntEnum):
     trailer_brake = 104
     """[Hold] Trailer brake only, while true. [SCS mix `trailerbrake`]"""
     retarder_up = 105
-    """[Press] Retarder: next stronger level. [SCS mix `retarderup`]"""
+    """[Press] Retarder: next stronger level. [SCS mix `retarderup`, default key: ;]"""
     retarder_down = 106
-    """[Press] Retarder: next weaker level. [SCS mix `retarderdown`]"""
+    """[Press] Retarder: next weaker level. [SCS mix `retarderdown`, default key: ']"""
     retarder_0 = 107
     """[Press] Set retarder to level 0. [SCS mix `retarder0`]"""
     retarder_1 = 108
@@ -249,7 +249,7 @@ class Button(IntEnum):
     retarder_5 = 112
     """[Press] Set retarder to level 5. [SCS mix `retarder5`]"""
     lift_axle = 113
-    """[Press] Raise or lower the truck lift axle. [SCS mix `liftaxle`]"""
+    """[Press] Raise or lower the truck lift axle. [SCS mix `liftaxle`, default key: U]"""
     lift_axle_trailer = 114
     """[Press] Raise or lower the trailer lift axle. [SCS mix `liftaxlet`]"""
     slide_axle_forward = 115
@@ -263,15 +263,15 @@ class Button(IntEnum):
     trailer_suspension_down = 119
     """[Press] Lower the trailer suspension. [SCS mix `trlrsuspdwn`]"""
     differential_lock = 120
-    """[Press] Toggle the differential lock. [SCS mix `diflock`, default key: R]"""
+    """[Press] Toggle the differential lock. [SCS mix `diflock`, default key: V]"""
     window_right_open = 121
-    """[Hold] Open the right window while true. [SCS mix `rwinopen`, default key: ']"""
+    """[Hold] Open the right window while true. [SCS mix `rwinopen`]"""
     window_right_close = 122
-    """[Hold] Close the right window while true. [SCS mix `rwinclose`, default key: []"""
+    """[Hold] Close the right window while true. [SCS mix `rwinclose`]"""
     window_left_open = 123
-    """[Hold] Open the left window while true. [SCS mix `lwinopen`, default key: ;]"""
+    """[Hold] Open the left window while true. [SCS mix `lwinopen`]"""
     window_left_close = 124
-    """[Hold] Close the left window while true. [SCS mix `lwinclose`, default key: P]"""
+    """[Hold] Close the left window while true. [SCS mix `lwinclose`]"""
     engine_brake_auto = 125
     """[Press] Toggle automatic engine brake. [SCS mix `engbrakeauto`]"""
     retarder_auto = 126
@@ -287,9 +287,9 @@ class Button(IntEnum):
     handbrake = 131
     """[Hold] Hand brake while true. (?) [SCS mix `handbrake`]"""
     wipers_step_up = 132
-    """[Press] Step the wipers to the next higher level. [SCS mix `wipers`, default key: .]"""
+    """[Press] Step the wipers to the next higher level. [SCS mix `wipers`, default key: P]"""
     wipers_step_down = 133
-    """[Press] Step the wipers to the next lower level. [SCS mix `wipersback`, default key: ,]"""
+    """[Press] Step the wipers to the next lower level. [SCS mix `wipersback`]"""
     wipers_level_0 = 134
     """[Press] Set the wipers directly to level 0. [SCS mix `wipers0`]"""
     wipers_level_1 = 135
@@ -301,7 +301,7 @@ class Button(IntEnum):
     wipers_level_4 = 138
     """[Press] Set the wipers directly to level 4. [SCS mix `wipers4`]"""
     cruise_control = 139
-    """[Press] Toggle cruise control. [SCS mix `cruiectrl`]"""
+    """[Press] Toggle cruise control. [SCS mix `cruiectrl`, default key: C]"""
     cruise_control_increase = 140
     """[Press] Increase the cruise control speed. [SCS mix `cruiectrlinc`]"""
     cruise_control_decrease = 141
@@ -323,15 +323,15 @@ class Button(IntEnum):
     high_beam = 149
     """[Press] Toggle the high beams. [SCS mix `hblight`, default key: K]"""
     blinker_left = 150
-    """[Press] Left blinker toggle. [SCS mix `lblinker`, default key: Q]"""
+    """[Press] Left blinker toggle. [SCS mix `lblinker`, default key: []"""
     blinker_left_hold = 151
     """[Hold] Left blinker while true. (?) [SCS mix `lblinkerh`]"""
     blinker_right = 152
-    """[Press] Right blinker toggle. [SCS mix `rblinker`, default key: E]"""
+    """[Press] Right blinker toggle. [SCS mix `rblinker`, default key: ]]"""
     blinker_right_hold = 153
     """[Hold] Right blinker while true. (?) [SCS mix `rblinkerh`]"""
     hazard_lights = 154
-    """[Press] Toggle the hazard lights. [SCS mix `flasher4way`, default key: x56]"""
+    """[Press] Toggle the hazard lights. [SCS mix `flasher4way`, default key: F]"""
     show_mirrors = 155
     """[Press] Toggle the mirror views. (?) [SCS mix `showmirrors`, default key: F2]"""
     show_hud = 156
@@ -339,7 +339,7 @@ class Button(IntEnum):
     navigation_map = 157
     """[Press] Toggle the full-screen navigation map. [SCS mix `navmap`, default key: M]"""
     photo_mode = 158
-    """[Press] Enter or leave photo mode. [SCS mix `photo_mode`]"""
+    """[Press] Enter or leave photo mode. [SCS mix `photo_mode`, default key: =]"""
     quick_save = 159
     """[Press] Quick-save the game. [SCS mix `quicksave`, default key: Scroll Lock]"""
     quick_load = 160
@@ -347,7 +347,7 @@ class Button(IntEnum):
     aca_quick_reset = 161
     """[Press] Advanced coupling assistant quick action. (?) [SCS mix `acaquickr`]"""
     radio = 162
-    """[Press] Toggle the radio on or off. [SCS mix `radio`]"""
+    """[Press] Toggle the radio on or off. [SCS mix `radio`, default key: R]"""
     radio_next = 163
     """[Press] Next radio station. [SCS mix `radionext`, default key: Page Down]"""
     radio_previous = 164
@@ -495,7 +495,7 @@ class Button(IntEnum):
     quick_select_8 = 239
     """[Press] Quick-select slot 8. [SCS mix `quicksel8`, default key: 8 / Numpad 8]"""
     push_to_talk = 240
-    """[Hold] Multiplayer push-to-talk while true. [SCS mix `mpptt`]"""
+    """[Hold] Multiplayer push-to-talk while true. [SCS mix `mpptt`, default key: X]"""
     replay_hide_controls = 241
     """[Press] Hide or show the replay controls. [SCS mix `replayhidec`, default key: H]"""
     gear_selector_1_on = 242
@@ -579,7 +579,7 @@ class Button(IntEnum):
     chat_open = 281
     """[Press] Open the multiplayer chat input. [SCS mix `chat_act`, default key: Y]"""
     quick_chat = 282
-    """[Press] Open the multiplayer quick-chat wheel. (?) [SCS mix `quick_chat`]"""
+    """[Press] Open the multiplayer quick-chat wheel. (?) [SCS mix `quick_chat`, default key: Q]"""
     zoom_cycle = 283
     """[Press] Cycle through the zoom levels of the current view. [SCS mix `cycl_zoom`, default key: Tab]"""
     name_tags = 284
@@ -1143,7 +1143,7 @@ class _Controls:
 
     @property
     def screenshot(self) -> bool:
-        """[Press] Take a screenshot. [SCS mix `screenshot`]"""
+        """[Press] Take a screenshot. [SCS mix `screenshot`, default key: F10]"""
         return self._v[28] != 0
 
     @screenshot.setter
@@ -1332,7 +1332,7 @@ class _Controls:
 
     @property
     def look_left(self) -> bool:
-        """[Hold] Look left while true. [SCS mix `lookleft`]"""
+        """[Hold] Look left while true. [SCS mix `lookleft`, default key: Numpad /]"""
         return self._v[49] != 0
 
     @look_left.setter
@@ -1341,7 +1341,7 @@ class _Controls:
 
     @property
     def look_right(self) -> bool:
-        """[Hold] Look right while true. [SCS mix `lookright`]"""
+        """[Hold] Look right while true. [SCS mix `lookright`, default key: Numpad *]"""
         return self._v[50] != 0
 
     @look_right.setter
@@ -1656,7 +1656,7 @@ class _Controls:
 
     @property
     def engine_toggle(self) -> bool:
-        """[Press] Toggle the engine on or off. [SCS mix `engine`, default key: C]"""
+        """[Press] Toggle the engine on or off. [SCS mix `engine`, default key: E]"""
         return self._v[85] != 0
 
     @engine_toggle.setter
@@ -1764,7 +1764,7 @@ class _Controls:
 
     @property
     def air_horn(self) -> bool:
-        """[Hold] Air horn while true. [SCS mix `airhorn`]"""
+        """[Hold] Air horn while true. [SCS mix `airhorn`, default key: N]"""
         return self._v[97] != 0
 
     @air_horn.setter
@@ -1773,7 +1773,7 @@ class _Controls:
 
     @property
     def light_flash(self) -> bool:
-        """[Hold] Flash the headlights while true. [SCS mix `lighthorn`]"""
+        """[Hold] Flash the headlights while true. [SCS mix `lighthorn`, default key: J]"""
         return self._v[98] != 0
 
     @light_flash.setter
@@ -1782,7 +1782,7 @@ class _Controls:
 
     @property
     def beacon(self) -> bool:
-        """[Press] Toggle the roof beacon. [SCS mix `beacon`]"""
+        """[Press] Toggle the roof beacon. [SCS mix `beacon`, default key: O]"""
         return self._v[99] != 0
 
     @beacon.setter
@@ -1791,7 +1791,7 @@ class _Controls:
 
     @property
     def motor_brake(self) -> bool:
-        """[Hold] Engine brake while true. (?) [SCS mix `motorbrake`]"""
+        """[Hold] Engine brake while true. (?) [SCS mix `motorbrake`, default key: B]"""
         return self._v[100] != 0
 
     @motor_brake.setter
@@ -1836,7 +1836,7 @@ class _Controls:
 
     @property
     def retarder_up(self) -> bool:
-        """[Press] Retarder: next stronger level. [SCS mix `retarderup`]"""
+        """[Press] Retarder: next stronger level. [SCS mix `retarderup`, default key: ;]"""
         return self._v[105] != 0
 
     @retarder_up.setter
@@ -1845,7 +1845,7 @@ class _Controls:
 
     @property
     def retarder_down(self) -> bool:
-        """[Press] Retarder: next weaker level. [SCS mix `retarderdown`]"""
+        """[Press] Retarder: next weaker level. [SCS mix `retarderdown`, default key: ']"""
         return self._v[106] != 0
 
     @retarder_down.setter
@@ -1908,7 +1908,7 @@ class _Controls:
 
     @property
     def lift_axle(self) -> bool:
-        """[Press] Raise or lower the truck lift axle. [SCS mix `liftaxle`]"""
+        """[Press] Raise or lower the truck lift axle. [SCS mix `liftaxle`, default key: U]"""
         return self._v[113] != 0
 
     @lift_axle.setter
@@ -1971,7 +1971,7 @@ class _Controls:
 
     @property
     def differential_lock(self) -> bool:
-        """[Press] Toggle the differential lock. [SCS mix `diflock`, default key: R]"""
+        """[Press] Toggle the differential lock. [SCS mix `diflock`, default key: V]"""
         return self._v[120] != 0
 
     @differential_lock.setter
@@ -1980,7 +1980,7 @@ class _Controls:
 
     @property
     def window_right_open(self) -> bool:
-        """[Hold] Open the right window while true. [SCS mix `rwinopen`, default key: ']"""
+        """[Hold] Open the right window while true. [SCS mix `rwinopen`]"""
         return self._v[121] != 0
 
     @window_right_open.setter
@@ -1989,7 +1989,7 @@ class _Controls:
 
     @property
     def window_right_close(self) -> bool:
-        """[Hold] Close the right window while true. [SCS mix `rwinclose`, default key: []"""
+        """[Hold] Close the right window while true. [SCS mix `rwinclose`]"""
         return self._v[122] != 0
 
     @window_right_close.setter
@@ -1998,7 +1998,7 @@ class _Controls:
 
     @property
     def window_left_open(self) -> bool:
-        """[Hold] Open the left window while true. [SCS mix `lwinopen`, default key: ;]"""
+        """[Hold] Open the left window while true. [SCS mix `lwinopen`]"""
         return self._v[123] != 0
 
     @window_left_open.setter
@@ -2007,7 +2007,7 @@ class _Controls:
 
     @property
     def window_left_close(self) -> bool:
-        """[Hold] Close the left window while true. [SCS mix `lwinclose`, default key: P]"""
+        """[Hold] Close the left window while true. [SCS mix `lwinclose`]"""
         return self._v[124] != 0
 
     @window_left_close.setter
@@ -2079,7 +2079,7 @@ class _Controls:
 
     @property
     def wipers_step_up(self) -> bool:
-        """[Press] Step the wipers to the next higher level. [SCS mix `wipers`, default key: .]"""
+        """[Press] Step the wipers to the next higher level. [SCS mix `wipers`, default key: P]"""
         return self._v[132] != 0
 
     @wipers_step_up.setter
@@ -2088,7 +2088,7 @@ class _Controls:
 
     @property
     def wipers_step_down(self) -> bool:
-        """[Press] Step the wipers to the next lower level. [SCS mix `wipersback`, default key: ,]"""
+        """[Press] Step the wipers to the next lower level. [SCS mix `wipersback`]"""
         return self._v[133] != 0
 
     @wipers_step_down.setter
@@ -2142,7 +2142,7 @@ class _Controls:
 
     @property
     def cruise_control(self) -> bool:
-        """[Press] Toggle cruise control. [SCS mix `cruiectrl`]"""
+        """[Press] Toggle cruise control. [SCS mix `cruiectrl`, default key: C]"""
         return self._v[139] != 0
 
     @cruise_control.setter
@@ -2241,7 +2241,7 @@ class _Controls:
 
     @property
     def blinker_left(self) -> bool:
-        """[Press] Left blinker toggle. [SCS mix `lblinker`, default key: Q]"""
+        """[Press] Left blinker toggle. [SCS mix `lblinker`, default key: []"""
         return self._v[150] != 0
 
     @blinker_left.setter
@@ -2259,7 +2259,7 @@ class _Controls:
 
     @property
     def blinker_right(self) -> bool:
-        """[Press] Right blinker toggle. [SCS mix `rblinker`, default key: E]"""
+        """[Press] Right blinker toggle. [SCS mix `rblinker`, default key: ]]"""
         return self._v[152] != 0
 
     @blinker_right.setter
@@ -2277,7 +2277,7 @@ class _Controls:
 
     @property
     def hazard_lights(self) -> bool:
-        """[Press] Toggle the hazard lights. [SCS mix `flasher4way`, default key: x56]"""
+        """[Press] Toggle the hazard lights. [SCS mix `flasher4way`, default key: F]"""
         return self._v[154] != 0
 
     @hazard_lights.setter
@@ -2313,7 +2313,7 @@ class _Controls:
 
     @property
     def photo_mode(self) -> bool:
-        """[Press] Enter or leave photo mode. [SCS mix `photo_mode`]"""
+        """[Press] Enter or leave photo mode. [SCS mix `photo_mode`, default key: =]"""
         return self._v[158] != 0
 
     @photo_mode.setter
@@ -2349,7 +2349,7 @@ class _Controls:
 
     @property
     def radio(self) -> bool:
-        """[Press] Toggle the radio on or off. [SCS mix `radio`]"""
+        """[Press] Toggle the radio on or off. [SCS mix `radio`, default key: R]"""
         return self._v[162] != 0
 
     @radio.setter
@@ -3051,7 +3051,7 @@ class _Controls:
 
     @property
     def push_to_talk(self) -> bool:
-        """[Hold] Multiplayer push-to-talk while true. [SCS mix `mpptt`]"""
+        """[Hold] Multiplayer push-to-talk while true. [SCS mix `mpptt`, default key: X]"""
         return self._v[240] != 0
 
     @push_to_talk.setter
@@ -3429,7 +3429,7 @@ class _Controls:
 
     @property
     def quick_chat(self) -> bool:
-        """[Press] Open the multiplayer quick-chat wheel. (?) [SCS mix `quick_chat`]"""
+        """[Press] Open the multiplayer quick-chat wheel. (?) [SCS mix `quick_chat`, default key: Q]"""
         return self._v[282] != 0
 
     @quick_chat.setter
