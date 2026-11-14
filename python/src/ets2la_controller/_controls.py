@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from enum import IntEnum
 
-INPUT_COUNT = 287
+INPUT_COUNT = 297
 
 
 class Axis(IntEnum):
@@ -53,13 +53,13 @@ class Axis(IntEnum):
     """Service brake pedal, 0 = released, 1 = full. [SCS mix `abackward`]"""
     clutch = 82
     """Clutch pedal, 0 = released, 1 = fully pressed. [SCS mix `clutch`]"""
-    photo_zoom_out_axis = 193
+    photo_zoom_out_axis = 202
     """Analog photo camera zoom out (0 to 1). [SCS mix `phot_z_j_out`]"""
-    photo_zoom_in_axis = 194
+    photo_zoom_in_axis = 203
     """Analog photo camera zoom in (0 to 1). [SCS mix `phot_z_j_in`]"""
-    walk_look_lr = 213
+    walk_look_lr = 222
     """Walking camera look left/right. (?) [SCS mix `camwalk_lr`]"""
-    walk_look_ud = 214
+    walk_look_ud = 223
     """Walking camera look up/down. (?) [SCS mix `camwalk_ud`]"""
 
 
@@ -214,379 +214,399 @@ class Button(IntEnum):
     """[Press] Lower the rear suspension. [SCS mix `rearsuspdwn`]"""
     suspension_reset = 95
     """[Press] Reset the suspension to its default height. [SCS mix `suspreset`]"""
-    horn = 96
+    cabin_light = 96
+    """[Press] Toggle the cabin light. (?) [SCS mix `cabinlight`]"""
+    horn = 97
     """[Hold] Horn while true. [SCS mix `horn`, default key: H]"""
-    air_horn = 97
+    air_horn = 98
     """[Hold] Air horn while true. [SCS mix `airhorn`, default key: N]"""
-    light_flash = 98
+    light_flash = 99
     """[Hold] Flash the headlights while true. [SCS mix `lighthorn`, default key: J]"""
-    beacon = 99
+    beacon = 100
     """[Press] Toggle the roof beacon. [SCS mix `beacon`, default key: O]"""
-    motor_brake = 100
+    motor_brake = 101
     """[Hold] Engine brake while true. (?) [SCS mix `motorbrake`, default key: B]"""
-    engine_brake_toggle = 101
+    engine_brake_toggle = 102
     """[Press] Toggle the engine brake. [SCS mix `engbraketog`]"""
-    engine_brake_up = 102
+    engine_brake_up = 103
     """[Press] Engine brake: next stronger level. [SCS mix `engbrakeup`]"""
-    engine_brake_down = 103
+    engine_brake_down = 104
     """[Press] Engine brake: next weaker level. [SCS mix `engbrakedwn`]"""
-    trailer_brake = 104
+    trailer_brake = 105
     """[Hold] Trailer brake only, while true. [SCS mix `trailerbrake`]"""
-    retarder_up = 105
+    retarder_up = 106
     """[Press] Retarder: next stronger level. [SCS mix `retarderup`, default key: ;]"""
-    retarder_down = 106
+    retarder_down = 107
     """[Press] Retarder: next weaker level. [SCS mix `retarderdown`, default key: ']"""
-    retarder_0 = 107
+    retarder_0 = 108
     """[Press] Set retarder to level 0. [SCS mix `retarder0`]"""
-    retarder_1 = 108
+    retarder_1 = 109
     """[Press] Set retarder to level 1. [SCS mix `retarder1`]"""
-    retarder_2 = 109
+    retarder_2 = 110
     """[Press] Set retarder to level 2. [SCS mix `retarder2`]"""
-    retarder_3 = 110
+    retarder_3 = 111
     """[Press] Set retarder to level 3. [SCS mix `retarder3`]"""
-    retarder_4 = 111
+    retarder_4 = 112
     """[Press] Set retarder to level 4. [SCS mix `retarder4`]"""
-    retarder_5 = 112
+    retarder_5 = 113
     """[Press] Set retarder to level 5. [SCS mix `retarder5`]"""
-    lift_axle = 113
+    lift_axle = 114
     """[Press] Raise or lower the truck lift axle. [SCS mix `liftaxle`, default key: U]"""
-    lift_axle_trailer = 114
+    lift_axle_trailer = 115
     """[Press] Raise or lower the trailer lift axle. [SCS mix `liftaxlet`]"""
-    slide_axle_forward = 115
+    slide_axle_forward = 116
     """[Hold] Slide the trailer axles forward while true. [SCS mix `slideaxlefwd`]"""
-    slide_axle_backward = 116
+    slide_axle_backward = 117
     """[Hold] Slide the trailer axles backward while true. [SCS mix `slideaxlebwd`]"""
-    slide_axle_manual = 117
+    slide_axle_manual = 118
     """[Press] Toggle manual trailer axle sliding. (?) [SCS mix `slideaxleman`]"""
-    trailer_suspension_up = 118
+    trailer_suspension_up = 119
     """[Press] Raise the trailer suspension. [SCS mix `trlrsuspup`]"""
-    trailer_suspension_down = 119
+    trailer_suspension_down = 120
     """[Press] Lower the trailer suspension. [SCS mix `trlrsuspdwn`]"""
-    differential_lock = 120
+    differential_lock = 121
     """[Press] Toggle the differential lock. [SCS mix `diflock`, default key: V]"""
-    window_right_open = 121
+    window_right_open = 122
     """[Hold] Open the right window while true. [SCS mix `rwinopen`]"""
-    window_right_close = 122
+    window_right_close = 123
     """[Hold] Close the right window while true. [SCS mix `rwinclose`]"""
-    window_left_open = 123
+    window_left_open = 124
     """[Hold] Open the left window while true. [SCS mix `lwinopen`]"""
-    window_left_close = 124
+    window_left_close = 125
     """[Hold] Close the left window while true. [SCS mix `lwinclose`]"""
-    engine_brake_auto = 125
+    window_shade_left_up = 126
+    """[Hold] Raise the left window shade while true. (?) [SCS mix `winlshadeup`]"""
+    window_shade_left_down = 127
+    """[Hold] Lower the left window shade while true. (?) [SCS mix `winlshadedwn`]"""
+    window_shade_right_up = 128
+    """[Hold] Raise the right window shade while true. (?) [SCS mix `winrshadeup`]"""
+    window_shade_right_down = 129
+    """[Hold] Lower the right window shade while true. (?) [SCS mix `winrshadedwn`]"""
+    entrance_doors = 130
+    """[Press] Open or close the entrance doors. (?) [SCS mix `entrdoors`]"""
+    engine_brake_auto = 131
     """[Press] Toggle automatic engine brake. [SCS mix `engbrakeauto`]"""
-    retarder_auto = 126
+    retarder_auto = 132
     """[Press] Toggle automatic retarder. [SCS mix `retarderauto`]"""
-    embrake = 127
+    embrake = 133
     """[Press] EM brake toggle. (?) [SCS mix `embrake`]"""
-    lane_assist_mode = 128
+    lane_assist_mode = 134
     """[Press] Switch the lane assist mode. (?) [SCS mix `laneassmode`]"""
-    transmission_power_mode = 129
+    transmission_power_mode = 135
     """[Press] Switch the transmission power mode. (?) [SCS mix `tranpwrmode`]"""
-    parking_brake = 130
+    parking_brake = 136
     """[Press] Toggle the parking brake. [SCS mix `parkingbrake`, default key: Space]"""
-    handbrake = 131
+    handbrake = 137
     """[Hold] Hand brake while true. (?) [SCS mix `handbrake`]"""
-    wipers_step_up = 132
+    wipers_step_up = 138
     """[Press] Step the wipers to the next higher level. [SCS mix `wipers`, default key: P]"""
-    wipers_step_down = 133
+    wipers_step_down = 139
     """[Press] Step the wipers to the next lower level. [SCS mix `wipersback`]"""
-    wipers_level_0 = 134
+    wipers_level_0 = 140
     """[Press] Set the wipers directly to level 0. [SCS mix `wipers0`]"""
-    wipers_level_1 = 135
+    wipers_level_1 = 141
     """[Press] Set the wipers directly to level 1. [SCS mix `wipers1`]"""
-    wipers_level_2 = 136
+    wipers_level_2 = 142
     """[Press] Set the wipers directly to level 2. [SCS mix `wipers2`]"""
-    wipers_level_3 = 137
+    wipers_level_3 = 143
     """[Press] Set the wipers directly to level 3. [SCS mix `wipers3`]"""
-    wipers_level_4 = 138
+    wipers_level_4 = 144
     """[Press] Set the wipers directly to level 4. [SCS mix `wipers4`]"""
-    cruise_control = 139
+    cruise_control = 145
     """[Press] Toggle cruise control. [SCS mix `cruiectrl`, default key: C]"""
-    cruise_control_increase = 140
+    cruise_control_increase = 146
     """[Press] Increase the cruise control speed. [SCS mix `cruiectrlinc`]"""
-    cruise_control_decrease = 141
+    cruise_control_decrease = 147
     """[Press] Decrease the cruise control speed. [SCS mix `cruiectrldec`]"""
-    cruise_control_resume = 142
+    cruise_control_resume = 148
     """[Press] Resume cruise control at the last set speed. [SCS mix `cruiectrlres`]"""
-    acc_mode = 143
+    acc_mode = 149
     """[Press] Switch the adaptive cruise control mode. (?) [SCS mix `accmode`]"""
-    lane_assist = 144
+    lane_assist = 150
     """[Press] Toggle lane assist. [SCS mix `laneassist`]"""
-    lights_cycle = 145
+    lights_cycle = 151
     """[Press] Cycle the lights. [SCS mix `light`, default key: L]"""
-    lights_off = 146
+    lights_off = 152
     """[Press] Lights off. [SCS mix `lightoff`]"""
-    lights_parking = 147
+    lights_parking = 153
     """[Press] Parking lights. [SCS mix `lightpark`]"""
-    lights_on = 148
+    lights_on = 154
     """[Press] Low beam on. [SCS mix `lighton`]"""
-    high_beam = 149
+    high_beam = 155
     """[Press] Toggle the high beams. [SCS mix `hblight`, default key: K]"""
-    blinker_left = 150
+    blinker_left = 156
     """[Press] Left blinker toggle. [SCS mix `lblinker`, default key: []"""
-    blinker_left_hold = 151
+    blinker_left_hold = 157
     """[Hold] Left blinker while true. (?) [SCS mix `lblinkerh`]"""
-    blinker_right = 152
+    blinker_right = 158
     """[Press] Right blinker toggle. [SCS mix `rblinker`, default key: ]]"""
-    blinker_right_hold = 153
+    blinker_right_hold = 159
     """[Hold] Right blinker while true. (?) [SCS mix `rblinkerh`]"""
-    hazard_lights = 154
+    hazard_lights = 160
     """[Press] Toggle the hazard lights. [SCS mix `flasher4way`, default key: F]"""
-    show_mirrors = 155
+    show_mirrors = 161
     """[Press] Toggle the mirror views. (?) [SCS mix `showmirrors`, default key: F2]"""
-    show_hud = 156
+    show_hud = 162
     """[Press] Toggle the HUD. [SCS mix `showhud`, default key: F3]"""
-    navigation_map = 157
+    navigation_map = 163
     """[Press] Toggle the full-screen navigation map. [SCS mix `navmap`, default key: M]"""
-    photo_mode = 158
+    photo_mode = 164
     """[Press] Enter or leave photo mode. [SCS mix `photo_mode`, default key: =]"""
-    quick_save = 159
+    quick_save = 165
     """[Press] Quick-save the game. [SCS mix `quicksave`, default key: Scroll Lock]"""
-    quick_load = 160
+    quick_load = 166
     """[Press] Quick-load the last quick-save. [SCS mix `quickload`]"""
-    aca_quick_reset = 161
+    aca_quick_reset = 167
     """[Press] Advanced coupling assistant quick action. (?) [SCS mix `acaquickr`]"""
-    radio = 162
+    radio = 168
     """[Press] Toggle the radio on or off. [SCS mix `radio`, default key: R]"""
-    radio_next = 163
+    radio_toggle = 169
+    """[Press] Toggle the radio on or off, separate mix from `radio`. (?) [SCS mix `radiotoggle`]"""
+    radio_next = 170
     """[Press] Next radio station. [SCS mix `radionext`, default key: Page Down]"""
-    radio_previous = 164
+    radio_previous = 171
     """[Press] Previous radio station. [SCS mix `radioprev`, default key: Page Up]"""
-    radio_up = 165
+    radio_up = 172
     """[Press] Radio up, volume or station. (?) [SCS mix `radioup`]"""
-    radio_down = 166
+    radio_down = 173
     """[Press] Radio down, volume or station. (?) [SCS mix `radiodown`]"""
-    display_cycle = 167
+    radio_favorite = 174
+    """[Press] Radio favorites action (select or mark favorite station). (?) [SCS mix `radiofav`]"""
+    display_cycle = 175
     """[Press] Cycle the dashboard display page. (?) [SCS mix `display`, default key: I]"""
-    quick_park = 168
+    quick_park = 176
     """[Press] Quick-park the truck. [SCS mix `quickpark`, default key: Q]"""
-    dashboard_map_zoom = 169
+    dashboard_map_zoom = 177
     """[Press] Change the zoom of the dashboard navigation display. [SCS mix `dashmapzoom`]"""
-    trip_reset = 170
+    trip_reset = 178
     """[Press] Reset the trip meter. [SCS mix `tripreset`]"""
-    sidebar_activate = 171
+    sidebar_activate = 179
     """[Press] Activate the sidebar panel. (?) [SCS mix `sb_activate`, default key: Tab]"""
-    sidebar_swap = 172
+    sidebar_swap = 180
     """[Press] Swap the sidebar panel. (?) [SCS mix `sb_swap`, default key: Caps Lock]"""
-    infotainment = 173
+    infotainment = 181
     """[Press] Toggle the infotainment screen. (?) [SCS mix `infotainment`]"""
-    map_center = 174
+    map_center = 182
     """[Press] Re-center the map on the truck. [SCS mix `mapcenter`, default key: F]"""
-    photo_reset = 175
+    parking_cameras = 183
+    """[Press] Toggle the parking camera view. (?) [SCS mix `parking_cams`]"""
+    photo_reset = 184
     """[Press] Reset the photo camera. [SCS mix `photores`, default key: R]"""
-    photo_move = 176
+    photo_move = 185
     """[Hold] Move the photo camera while true. (?) [SCS mix `photomove`, default key: Right mouse button]"""
-    photo_grab = 177
+    photo_grab = 186
     """[Hold] Grab and rotate the photo camera while true. (?) [SCS mix `phototake`, default key: Left mouse button]"""
-    photo_forward = 178
+    photo_forward = 187
     """[Hold] Photo camera forward. [SCS mix `photofwd`, default key: W]"""
-    photo_backward = 179
+    photo_backward = 188
     """[Hold] Photo camera backward. [SCS mix `photobwd`, default key: S]"""
-    photo_left = 180
+    photo_left = 189
     """[Hold] Photo camera left. [SCS mix `photoleft`, default key: A]"""
-    photo_right = 181
+    photo_right = 190
     """[Hold] Photo camera right. [SCS mix `photoright`, default key: D]"""
-    photo_up = 182
+    photo_up = 191
     """[Hold] Photo camera up. [SCS mix `photoup`, default key: Q]"""
-    photo_down = 183
+    photo_down = 192
     """[Hold] Photo camera down. [SCS mix `photodown`, default key: E]"""
-    photo_roll_left = 184
+    photo_roll_left = 193
     """[Hold] Roll the photo camera left. [SCS mix `photorolll`, default key: Z]"""
-    photo_roll_right = 185
+    photo_roll_right = 194
     """[Hold] Roll the photo camera right. [SCS mix `photorollr`, default key: C]"""
-    photo_manager = 186
+    photo_manager = 195
     """[Press] Open the photo manager. (?) [SCS mix `photosman`, default key: M]"""
-    photo_options = 187
+    photo_options = 196
     """[Press] Open the photo options. [SCS mix `photo_opts`, default key: Space]"""
-    photo_snap = 188
+    photo_snap = 197
     """[Press] Take the photo. [SCS mix `photosnap`, default key: Enter]"""
-    photo_hide_controls = 189
+    photo_hide_controls = 198
     """[Press] Hide or show the photo mode controls. [SCS mix `photo_hctrl`, default key: H]"""
-    photo_names = 190
+    photo_names = 199
     """[Press] Toggle names in photo mode. (?) [SCS mix `photonames`, default key: N]"""
-    photo_zoom_out = 191
+    photo_zoom_out = 200
     """[Press] Photo camera zoom out by one step. [SCS mix `photozoomout`, default key: Mouse wheel down]"""
-    photo_zoom_in = 192
+    photo_zoom_in = 201
     """[Press] Photo camera zoom in by one step. [SCS mix `photozoomin`, default key: Mouse wheel up]"""
-    album_page_up = 195
+    album_page_up = 204
     """[Press] Album: previous page. [SCS mix `album_pgup`, default key: Page Up]"""
-    album_page_down = 196
+    album_page_down = 205
     """[Press] Album: next page. [SCS mix `album_pgdn`, default key: Page Down]"""
-    album_item_up = 197
+    album_item_up = 206
     """[Press] Album: move the selection up. [SCS mix `album_itup`, default key: Up]"""
-    album_item_down = 198
+    album_item_down = 207
     """[Press] Album: move the selection down. [SCS mix `album_itdn`, default key: Down]"""
-    album_item_left = 199
+    album_item_left = 208
     """[Press] Album: move the selection left. [SCS mix `album_itlf`, default key: Left]"""
-    album_item_right = 200
+    album_item_right = 209
     """[Press] Album: move the selection right. [SCS mix `album_itrg`, default key: Right]"""
-    album_item_home = 201
+    album_item_home = 210
     """[Press] Album: jump to the first item. [SCS mix `album_ithm`, default key: Home]"""
-    album_item_end = 202
+    album_item_end = 211
     """[Press] Album: jump to the last item. [SCS mix `album_iten`, default key: End]"""
-    album_item_activate = 203
+    album_item_activate = 212
     """[Press] Album: open the selected item. [SCS mix `album_itac`, default key: Enter / Numpad Enter]"""
-    album_item_options = 204
+    album_item_options = 213
     """[Press] Album: options for the selected item. (?) [SCS mix `album_itop`, default key: Space]"""
-    album_item_delete = 205
+    album_item_delete = 214
     """[Press] Album: delete the selected item. [SCS mix `album_itdl`, default key: Delete]"""
-    walk_forward = 206
+    walk_forward = 215
     """[Hold] Walk forward. [SCS mix `camwalk_for`, default key: W]"""
-    walk_backward = 207
+    walk_backward = 216
     """[Hold] Walk backward. [SCS mix `camwalk_back`, default key: S]"""
-    walk_right = 208
+    walk_right = 217
     """[Hold] Walk right. [SCS mix `camwalk_righ`, default key: D]"""
-    walk_left = 209
+    walk_left = 218
     """[Hold] Walk left. [SCS mix `camwalk_left`, default key: A]"""
-    walk_run = 210
+    walk_run = 219
     """[Hold] Run while true. [SCS mix `camwalk_run`, default key: Left Shift]"""
-    walk_jump = 211
+    walk_jump = 220
     """[Press] Jump. [SCS mix `camwalk_jump`, default key: Space]"""
-    walk_crouch = 212
+    walk_crouch = 221
     """[Hold] Crouch while true. [SCS mix `camwalk_crou`, default key: Left Ctrl]"""
-    gear_up = 215
+    gear_up = 224
     """[Press] Shift up one gear. [SCS mix `gearup`, default key: Left Shift / Right Shift]"""
-    gear_down = 216
+    gear_down = 225
     """[Press] Shift down one gear. [SCS mix `geardown`, default key: Left Ctrl / Right Ctrl]"""
-    gear_neutral = 217
+    gear_neutral = 226
     """[Press] Shift to neutral. [SCS mix `gear0`]"""
-    gear_drive = 218
+    gear_drive = 227
     """[Press] Shift to drive. [SCS mix `geardrive`]"""
-    gear_reverse = 219
+    gear_reverse = 228
     """[Press] Shift to reverse. [SCS mix `gearreverse`]"""
-    gear_up_hint = 220
+    gear_up_hint = 229
     """[Press] Shift up using the shift hint. (?) [SCS mix `gearuphint`]"""
-    gear_down_hint = 221
+    gear_down_hint = 230
     """[Press] Shift down using the shift hint. (?) [SCS mix `geardownhint`]"""
-    transmission_semi = 222
+    transmission_semi = 231
     """[Press] Toggle the semi-automatic transmission mode. (?) [SCS mix `transemi`]"""
-    drive = 223
+    drive = 232
     """[Press] Select drive. [SCS mix `drive`]"""
-    reverse = 224
+    reverse = 233
     """[Press] Select reverse. [SCS mix `reverse`]"""
-    mirror_select_cabin = 225
+    mirror_select_cabin = 234
     """[Press] Select the cabin mirror for adjusting. (?) [SCS mix `cmirrorsel`]"""
-    mirror_select_front = 226
+    mirror_select_front = 235
     """[Press] Select the front mirror for adjusting. (?) [SCS mix `fmirrorsel`]"""
-    mirror_yaw_left = 227
+    mirror_yaw_left = 236
     """[Hold] Turn the selected mirror left while true. [SCS mix `mirroryawl`]"""
-    mirror_yaw_right = 228
+    mirror_yaw_right = 237
     """[Hold] Turn the selected mirror right while true. [SCS mix `mirroryawr`]"""
-    mirror_pitch_up = 229
+    mirror_pitch_up = 238
     """[Hold] Tilt the selected mirror up while true. [SCS mix `mirrorpitu`]"""
-    mirror_pitch_down = 230
+    mirror_pitch_down = 239
     """[Hold] Tilt the selected mirror down while true. (?) [SCS mix `mirrorpitl`]"""
-    mirror_reset = 231
+    mirror_reset = 240
     """[Press] Reset the selected mirror. [SCS mix `mirrorreset`]"""
-    quick_select_1 = 232
+    quick_select_1 = 241
     """[Press] Quick-select slot 1. [SCS mix `quicksel1`, default key: 1 / Numpad 1]"""
-    quick_select_2 = 233
+    quick_select_2 = 242
     """[Press] Quick-select slot 2. [SCS mix `quicksel2`, default key: 2 / Numpad 2]"""
-    quick_select_3 = 234
+    quick_select_3 = 243
     """[Press] Quick-select slot 3. [SCS mix `quicksel3`, default key: 3 / Numpad 3]"""
-    quick_select_4 = 235
+    quick_select_4 = 244
     """[Press] Quick-select slot 4. [SCS mix `quicksel4`, default key: 4 / Numpad 4]"""
-    quick_select_5 = 236
+    quick_select_5 = 245
     """[Press] Quick-select slot 5. [SCS mix `quicksel5`, default key: 5 / Numpad 5]"""
-    quick_select_6 = 237
+    quick_select_6 = 246
     """[Press] Quick-select slot 6. [SCS mix `quicksel6`, default key: 6 / Numpad 6]"""
-    quick_select_7 = 238
+    quick_select_7 = 247
     """[Press] Quick-select slot 7. [SCS mix `quicksel7`, default key: 7 / Numpad 7]"""
-    quick_select_8 = 239
+    quick_select_8 = 248
     """[Press] Quick-select slot 8. [SCS mix `quicksel8`, default key: 8 / Numpad 8]"""
-    push_to_talk = 240
+    push_to_talk = 249
     """[Hold] Multiplayer push-to-talk while true. [SCS mix `mpptt`, default key: X]"""
-    replay_hide_controls = 241
+    replay_hide_controls = 250
     """[Press] Hide or show the replay controls. [SCS mix `replayhidec`, default key: H]"""
-    gear_selector_1_on = 242
+    gear_selector_1_on = 251
     """[Press] Gear selector 1 on. (?) [SCS mix `gearsel1on`]"""
-    gear_selector_1_off = 243
+    gear_selector_1_off = 252
     """[Press] Gear selector 1 off. (?) [SCS mix `gearsel1off`]"""
-    gear_selector_1_toggle = 244
+    gear_selector_1_toggle = 253
     """[Press] Gear selector 1 toggle. (?) [SCS mix `gearsel1tgl`]"""
-    gear_selector_2_on = 245
+    gear_selector_2_on = 254
     """[Press] Gear selector 2 on. (?) [SCS mix `gearsel2on`]"""
-    gear_selector_2_off = 246
+    gear_selector_2_off = 255
     """[Press] Gear selector 2 off. (?) [SCS mix `gearsel2off`]"""
-    gear_selector_2_toggle = 247
+    gear_selector_2_toggle = 256
     """[Press] Gear selector 2 toggle. (?) [SCS mix `gearsel2tgl`]"""
-    gear_1 = 248
+    gear_1 = 257
     """[Press] Select gear 1 directly. [SCS mix `gear1`]"""
-    gear_2 = 249
+    gear_2 = 258
     """[Press] Select gear 2 directly. [SCS mix `gear2`]"""
-    gear_3 = 250
+    gear_3 = 259
     """[Press] Select gear 3 directly. [SCS mix `gear3`]"""
-    gear_4 = 251
+    gear_4 = 260
     """[Press] Select gear 4 directly. [SCS mix `gear4`]"""
-    gear_5 = 252
+    gear_5 = 261
     """[Press] Select gear 5 directly. [SCS mix `gear5`]"""
-    gear_6 = 253
+    gear_6 = 262
     """[Press] Select gear 6 directly. [SCS mix `gear6`]"""
-    gear_7 = 254
+    gear_7 = 263
     """[Press] Select gear 7 directly. [SCS mix `gear7`]"""
-    gear_8 = 255
+    gear_8 = 264
     """[Press] Select gear 8 directly. [SCS mix `gear8`]"""
-    gear_9 = 256
+    gear_9 = 265
     """[Press] Select gear 9 directly. [SCS mix `gear9`]"""
-    gear_10 = 257
+    gear_10 = 266
     """[Press] Select gear 10 directly. [SCS mix `gear10`]"""
-    gear_11 = 258
+    gear_11 = 267
     """[Press] Select gear 11 directly. [SCS mix `gear11`]"""
-    gear_12 = 259
+    gear_12 = 268
     """[Press] Select gear 12 directly. [SCS mix `gear12`]"""
-    gear_13 = 260
+    gear_13 = 269
     """[Press] Select gear 13 directly. [SCS mix `gear13`]"""
-    gear_14 = 261
+    gear_14 = 270
     """[Press] Select gear 14 directly. [SCS mix `gear14`]"""
-    gear_15 = 262
+    gear_15 = 271
     """[Press] Select gear 15 directly. [SCS mix `gear15`]"""
-    gear_16 = 263
+    gear_16 = 272
     """[Press] Select gear 16 directly. [SCS mix `gear16`]"""
-    adjuster = 264
+    adjuster = 273
     """[Press] Open the seat/mirror/light adjuster. [SCS mix `adjuster`, default key: F4]"""
-    advisor_mouse = 265
+    advisor_mouse = 274
     """[Press] Advisor: toggle mouse control. (?) [SCS mix `advmouse`, default key: F1]"""
-    advisor_eta_mode = 266
+    advisor_eta_mode = 275
     """[Press] Advisor: switch the ETA mode. (?) [SCS mix `advetamode`]"""
-    garage_manager = 267
+    garage_manager = 276
     """[Press] Open the garage manager. (?) [SCS mix `gar_man`, default key: G]"""
-    advisor_zoom_in = 268
+    advisor_zoom_in = 277
     """[Press] Advisor: zoom in. (?) [SCS mix `advzoomin`]"""
-    advisor_zoom_out = 269
+    advisor_zoom_out = 278
     """[Press] Advisor: zoom out. (?) [SCS mix `advzoomout`, default key: F5]"""
-    advisor_options = 270
+    advisor_options = 279
     """[Press] Advisor: open the options. [SCS mix `advoptions`, default key: F6]"""
-    advisor_services = 271
+    advisor_services = 280
     """[Press] Advisor: open the services. [SCS mix `services`, default key: F7]"""
-    assist_action_1 = 272
+    assist_action_1 = 281
     """[Press] Driving assist action 1. (?) [SCS mix `assistact1`, default key: 1]"""
-    assist_action_2 = 273
+    assist_action_2 = 282
     """[Press] Driving assist action 2. (?) [SCS mix `assistact2`, default key: 2]"""
-    assist_action_3 = 274
+    assist_action_3 = 283
     """[Press] Driving assist action 3. (?) [SCS mix `assistact3`, default key: 3]"""
-    assist_action_4 = 275
+    assist_action_4 = 284
     """[Press] Driving assist action 4. (?) [SCS mix `assistact4`, default key: 4]"""
-    assist_action_5 = 276
+    assist_action_5 = 285
     """[Press] Driving assist action 5. (?) [SCS mix `assistact5`, default key: 5]"""
-    adjust_seats = 277
+    assist_action_6 = 286
+    """[Press] Driving assist action 6. (?) [SCS mix `assistact6`, default key: 6]"""
+    adjust_seats = 287
     """[Press] Adjuster: seats. [SCS mix `adj_seats`, default key: 1]"""
-    adjust_mirrors = 278
+    adjust_mirrors = 288
     """[Press] Adjuster: mirrors. [SCS mix `adj_mirrors`, default key: 2]"""
-    adjust_lights = 279
+    adjust_lights = 289
     """[Press] Adjuster: lights. [SCS mix `adj_lights`, default key: 3]"""
-    adjust_ui_mirror = 280
+    adjust_ui_mirror = 290
     """[Press] Adjuster: UI mirror. (?) [SCS mix `adj_uimirror`, default key: 4]"""
-    chat_open = 281
+    chat_open = 291
     """[Press] Open the multiplayer chat input. [SCS mix `chat_act`, default key: Y]"""
-    quick_chat = 282
+    quick_chat = 292
     """[Press] Open the multiplayer quick-chat wheel. (?) [SCS mix `quick_chat`, default key: Q]"""
-    zoom_cycle = 283
+    zoom_cycle = 293
     """[Press] Cycle through the zoom levels of the current view. [SCS mix `cycl_zoom`, default key: Tab]"""
-    name_tags = 284
+    name_tags = 294
     """[Press] Toggle player name tags in multiplayer. [SCS mix `name_tags`, default key: Z]"""
-    head_reset = 285
+    head_reset = 295
     """[Press] Re-center head tracking or VR view. [SCS mix `headreset`, default key: F12]"""
-    stereo_menu = 286
+    stereo_menu = 296
     """[Press] Toggle the stereo or VR menu mode. (?) [SCS mix `menustereo`, default key: F11]"""
 
 
@@ -687,200 +707,210 @@ NAME_TO_INDEX = {
     "suspension_rear_up": 93,
     "suspension_rear_down": 94,
     "suspension_reset": 95,
-    "horn": 96,
-    "air_horn": 97,
-    "light_flash": 98,
-    "beacon": 99,
-    "motor_brake": 100,
-    "engine_brake_toggle": 101,
-    "engine_brake_up": 102,
-    "engine_brake_down": 103,
-    "trailer_brake": 104,
-    "retarder_up": 105,
-    "retarder_down": 106,
-    "retarder_0": 107,
-    "retarder_1": 108,
-    "retarder_2": 109,
-    "retarder_3": 110,
-    "retarder_4": 111,
-    "retarder_5": 112,
-    "lift_axle": 113,
-    "lift_axle_trailer": 114,
-    "slide_axle_forward": 115,
-    "slide_axle_backward": 116,
-    "slide_axle_manual": 117,
-    "trailer_suspension_up": 118,
-    "trailer_suspension_down": 119,
-    "differential_lock": 120,
-    "window_right_open": 121,
-    "window_right_close": 122,
-    "window_left_open": 123,
-    "window_left_close": 124,
-    "engine_brake_auto": 125,
-    "retarder_auto": 126,
-    "embrake": 127,
-    "lane_assist_mode": 128,
-    "transmission_power_mode": 129,
-    "parking_brake": 130,
-    "handbrake": 131,
-    "wipers_step_up": 132,
-    "wipers_step_down": 133,
-    "wipers_level_0": 134,
-    "wipers_level_1": 135,
-    "wipers_level_2": 136,
-    "wipers_level_3": 137,
-    "wipers_level_4": 138,
-    "cruise_control": 139,
-    "cruise_control_increase": 140,
-    "cruise_control_decrease": 141,
-    "cruise_control_resume": 142,
-    "acc_mode": 143,
-    "lane_assist": 144,
-    "lights_cycle": 145,
-    "lights_off": 146,
-    "lights_parking": 147,
-    "lights_on": 148,
-    "high_beam": 149,
-    "blinker_left": 150,
-    "blinker_left_hold": 151,
-    "blinker_right": 152,
-    "blinker_right_hold": 153,
-    "hazard_lights": 154,
-    "show_mirrors": 155,
-    "show_hud": 156,
-    "navigation_map": 157,
-    "photo_mode": 158,
-    "quick_save": 159,
-    "quick_load": 160,
-    "aca_quick_reset": 161,
-    "radio": 162,
-    "radio_next": 163,
-    "radio_previous": 164,
-    "radio_up": 165,
-    "radio_down": 166,
-    "display_cycle": 167,
-    "quick_park": 168,
-    "dashboard_map_zoom": 169,
-    "trip_reset": 170,
-    "sidebar_activate": 171,
-    "sidebar_swap": 172,
-    "infotainment": 173,
-    "map_center": 174,
-    "photo_reset": 175,
-    "photo_move": 176,
-    "photo_grab": 177,
-    "photo_forward": 178,
-    "photo_backward": 179,
-    "photo_left": 180,
-    "photo_right": 181,
-    "photo_up": 182,
-    "photo_down": 183,
-    "photo_roll_left": 184,
-    "photo_roll_right": 185,
-    "photo_manager": 186,
-    "photo_options": 187,
-    "photo_snap": 188,
-    "photo_hide_controls": 189,
-    "photo_names": 190,
-    "photo_zoom_out": 191,
-    "photo_zoom_in": 192,
-    "photo_zoom_out_axis": 193,
-    "photo_zoom_in_axis": 194,
-    "album_page_up": 195,
-    "album_page_down": 196,
-    "album_item_up": 197,
-    "album_item_down": 198,
-    "album_item_left": 199,
-    "album_item_right": 200,
-    "album_item_home": 201,
-    "album_item_end": 202,
-    "album_item_activate": 203,
-    "album_item_options": 204,
-    "album_item_delete": 205,
-    "walk_forward": 206,
-    "walk_backward": 207,
-    "walk_right": 208,
-    "walk_left": 209,
-    "walk_run": 210,
-    "walk_jump": 211,
-    "walk_crouch": 212,
-    "walk_look_lr": 213,
-    "walk_look_ud": 214,
-    "gear_up": 215,
-    "gear_down": 216,
-    "gear_neutral": 217,
-    "gear_drive": 218,
-    "gear_reverse": 219,
-    "gear_up_hint": 220,
-    "gear_down_hint": 221,
-    "transmission_semi": 222,
-    "drive": 223,
-    "reverse": 224,
-    "mirror_select_cabin": 225,
-    "mirror_select_front": 226,
-    "mirror_yaw_left": 227,
-    "mirror_yaw_right": 228,
-    "mirror_pitch_up": 229,
-    "mirror_pitch_down": 230,
-    "mirror_reset": 231,
-    "quick_select_1": 232,
-    "quick_select_2": 233,
-    "quick_select_3": 234,
-    "quick_select_4": 235,
-    "quick_select_5": 236,
-    "quick_select_6": 237,
-    "quick_select_7": 238,
-    "quick_select_8": 239,
-    "push_to_talk": 240,
-    "replay_hide_controls": 241,
-    "gear_selector_1_on": 242,
-    "gear_selector_1_off": 243,
-    "gear_selector_1_toggle": 244,
-    "gear_selector_2_on": 245,
-    "gear_selector_2_off": 246,
-    "gear_selector_2_toggle": 247,
-    "gear_1": 248,
-    "gear_2": 249,
-    "gear_3": 250,
-    "gear_4": 251,
-    "gear_5": 252,
-    "gear_6": 253,
-    "gear_7": 254,
-    "gear_8": 255,
-    "gear_9": 256,
-    "gear_10": 257,
-    "gear_11": 258,
-    "gear_12": 259,
-    "gear_13": 260,
-    "gear_14": 261,
-    "gear_15": 262,
-    "gear_16": 263,
-    "adjuster": 264,
-    "advisor_mouse": 265,
-    "advisor_eta_mode": 266,
-    "garage_manager": 267,
-    "advisor_zoom_in": 268,
-    "advisor_zoom_out": 269,
-    "advisor_options": 270,
-    "advisor_services": 271,
-    "assist_action_1": 272,
-    "assist_action_2": 273,
-    "assist_action_3": 274,
-    "assist_action_4": 275,
-    "assist_action_5": 276,
-    "adjust_seats": 277,
-    "adjust_mirrors": 278,
-    "adjust_lights": 279,
-    "adjust_ui_mirror": 280,
-    "chat_open": 281,
-    "quick_chat": 282,
-    "zoom_cycle": 283,
-    "name_tags": 284,
-    "head_reset": 285,
-    "stereo_menu": 286,
+    "cabin_light": 96,
+    "horn": 97,
+    "air_horn": 98,
+    "light_flash": 99,
+    "beacon": 100,
+    "motor_brake": 101,
+    "engine_brake_toggle": 102,
+    "engine_brake_up": 103,
+    "engine_brake_down": 104,
+    "trailer_brake": 105,
+    "retarder_up": 106,
+    "retarder_down": 107,
+    "retarder_0": 108,
+    "retarder_1": 109,
+    "retarder_2": 110,
+    "retarder_3": 111,
+    "retarder_4": 112,
+    "retarder_5": 113,
+    "lift_axle": 114,
+    "lift_axle_trailer": 115,
+    "slide_axle_forward": 116,
+    "slide_axle_backward": 117,
+    "slide_axle_manual": 118,
+    "trailer_suspension_up": 119,
+    "trailer_suspension_down": 120,
+    "differential_lock": 121,
+    "window_right_open": 122,
+    "window_right_close": 123,
+    "window_left_open": 124,
+    "window_left_close": 125,
+    "window_shade_left_up": 126,
+    "window_shade_left_down": 127,
+    "window_shade_right_up": 128,
+    "window_shade_right_down": 129,
+    "entrance_doors": 130,
+    "engine_brake_auto": 131,
+    "retarder_auto": 132,
+    "embrake": 133,
+    "lane_assist_mode": 134,
+    "transmission_power_mode": 135,
+    "parking_brake": 136,
+    "handbrake": 137,
+    "wipers_step_up": 138,
+    "wipers_step_down": 139,
+    "wipers_level_0": 140,
+    "wipers_level_1": 141,
+    "wipers_level_2": 142,
+    "wipers_level_3": 143,
+    "wipers_level_4": 144,
+    "cruise_control": 145,
+    "cruise_control_increase": 146,
+    "cruise_control_decrease": 147,
+    "cruise_control_resume": 148,
+    "acc_mode": 149,
+    "lane_assist": 150,
+    "lights_cycle": 151,
+    "lights_off": 152,
+    "lights_parking": 153,
+    "lights_on": 154,
+    "high_beam": 155,
+    "blinker_left": 156,
+    "blinker_left_hold": 157,
+    "blinker_right": 158,
+    "blinker_right_hold": 159,
+    "hazard_lights": 160,
+    "show_mirrors": 161,
+    "show_hud": 162,
+    "navigation_map": 163,
+    "photo_mode": 164,
+    "quick_save": 165,
+    "quick_load": 166,
+    "aca_quick_reset": 167,
+    "radio": 168,
+    "radio_toggle": 169,
+    "radio_next": 170,
+    "radio_previous": 171,
+    "radio_up": 172,
+    "radio_down": 173,
+    "radio_favorite": 174,
+    "display_cycle": 175,
+    "quick_park": 176,
+    "dashboard_map_zoom": 177,
+    "trip_reset": 178,
+    "sidebar_activate": 179,
+    "sidebar_swap": 180,
+    "infotainment": 181,
+    "map_center": 182,
+    "parking_cameras": 183,
+    "photo_reset": 184,
+    "photo_move": 185,
+    "photo_grab": 186,
+    "photo_forward": 187,
+    "photo_backward": 188,
+    "photo_left": 189,
+    "photo_right": 190,
+    "photo_up": 191,
+    "photo_down": 192,
+    "photo_roll_left": 193,
+    "photo_roll_right": 194,
+    "photo_manager": 195,
+    "photo_options": 196,
+    "photo_snap": 197,
+    "photo_hide_controls": 198,
+    "photo_names": 199,
+    "photo_zoom_out": 200,
+    "photo_zoom_in": 201,
+    "photo_zoom_out_axis": 202,
+    "photo_zoom_in_axis": 203,
+    "album_page_up": 204,
+    "album_page_down": 205,
+    "album_item_up": 206,
+    "album_item_down": 207,
+    "album_item_left": 208,
+    "album_item_right": 209,
+    "album_item_home": 210,
+    "album_item_end": 211,
+    "album_item_activate": 212,
+    "album_item_options": 213,
+    "album_item_delete": 214,
+    "walk_forward": 215,
+    "walk_backward": 216,
+    "walk_right": 217,
+    "walk_left": 218,
+    "walk_run": 219,
+    "walk_jump": 220,
+    "walk_crouch": 221,
+    "walk_look_lr": 222,
+    "walk_look_ud": 223,
+    "gear_up": 224,
+    "gear_down": 225,
+    "gear_neutral": 226,
+    "gear_drive": 227,
+    "gear_reverse": 228,
+    "gear_up_hint": 229,
+    "gear_down_hint": 230,
+    "transmission_semi": 231,
+    "drive": 232,
+    "reverse": 233,
+    "mirror_select_cabin": 234,
+    "mirror_select_front": 235,
+    "mirror_yaw_left": 236,
+    "mirror_yaw_right": 237,
+    "mirror_pitch_up": 238,
+    "mirror_pitch_down": 239,
+    "mirror_reset": 240,
+    "quick_select_1": 241,
+    "quick_select_2": 242,
+    "quick_select_3": 243,
+    "quick_select_4": 244,
+    "quick_select_5": 245,
+    "quick_select_6": 246,
+    "quick_select_7": 247,
+    "quick_select_8": 248,
+    "push_to_talk": 249,
+    "replay_hide_controls": 250,
+    "gear_selector_1_on": 251,
+    "gear_selector_1_off": 252,
+    "gear_selector_1_toggle": 253,
+    "gear_selector_2_on": 254,
+    "gear_selector_2_off": 255,
+    "gear_selector_2_toggle": 256,
+    "gear_1": 257,
+    "gear_2": 258,
+    "gear_3": 259,
+    "gear_4": 260,
+    "gear_5": 261,
+    "gear_6": 262,
+    "gear_7": 263,
+    "gear_8": 264,
+    "gear_9": 265,
+    "gear_10": 266,
+    "gear_11": 267,
+    "gear_12": 268,
+    "gear_13": 269,
+    "gear_14": 270,
+    "gear_15": 271,
+    "gear_16": 272,
+    "adjuster": 273,
+    "advisor_mouse": 274,
+    "advisor_eta_mode": 275,
+    "garage_manager": 276,
+    "advisor_zoom_in": 277,
+    "advisor_zoom_out": 278,
+    "advisor_options": 279,
+    "advisor_services": 280,
+    "assist_action_1": 281,
+    "assist_action_2": 282,
+    "assist_action_3": 283,
+    "assist_action_4": 284,
+    "assist_action_5": 285,
+    "assist_action_6": 286,
+    "adjust_seats": 287,
+    "adjust_mirrors": 288,
+    "adjust_lights": 289,
+    "adjust_ui_mirror": 290,
+    "chat_open": 291,
+    "quick_chat": 292,
+    "zoom_cycle": 293,
+    "name_tags": 294,
+    "head_reset": 295,
+    "stereo_menu": 296,
 }
 
-AXIS_INDICES = frozenset({0, 1, 2, 3, 17, 18, 51, 52, 53, 54, 55, 56, 57, 58, 64, 65, 66, 67, 79, 80, 81, 82, 193, 194, 213, 214})
+AXIS_INDICES = frozenset({0, 1, 2, 3, 17, 18, 51, 52, 53, 54, 55, 56, 57, 58, 64, 65, 66, 67, 79, 80, 81, 82, 202, 203, 222, 223})
 
 
 class _Controls:
@@ -1754,1720 +1784,1810 @@ class _Controls:
         self._v[95] = 1 if value else 0
 
     @property
+    def cabin_light(self) -> bool:
+        """[Press] Toggle the cabin light. (?) [SCS mix `cabinlight`]"""
+        return self._v[96] != 0
+
+    @cabin_light.setter
+    def cabin_light(self, value: bool) -> None:
+        self._v[96] = 1 if value else 0
+
+    @property
     def horn(self) -> bool:
         """[Hold] Horn while true. [SCS mix `horn`, default key: H]"""
-        return self._v[96] != 0
+        return self._v[97] != 0
 
     @horn.setter
     def horn(self, value: bool) -> None:
-        self._v[96] = 1 if value else 0
+        self._v[97] = 1 if value else 0
 
     @property
     def air_horn(self) -> bool:
         """[Hold] Air horn while true. [SCS mix `airhorn`, default key: N]"""
-        return self._v[97] != 0
+        return self._v[98] != 0
 
     @air_horn.setter
     def air_horn(self, value: bool) -> None:
-        self._v[97] = 1 if value else 0
+        self._v[98] = 1 if value else 0
 
     @property
     def light_flash(self) -> bool:
         """[Hold] Flash the headlights while true. [SCS mix `lighthorn`, default key: J]"""
-        return self._v[98] != 0
+        return self._v[99] != 0
 
     @light_flash.setter
     def light_flash(self, value: bool) -> None:
-        self._v[98] = 1 if value else 0
+        self._v[99] = 1 if value else 0
 
     @property
     def beacon(self) -> bool:
         """[Press] Toggle the roof beacon. [SCS mix `beacon`, default key: O]"""
-        return self._v[99] != 0
+        return self._v[100] != 0
 
     @beacon.setter
     def beacon(self, value: bool) -> None:
-        self._v[99] = 1 if value else 0
+        self._v[100] = 1 if value else 0
 
     @property
     def motor_brake(self) -> bool:
         """[Hold] Engine brake while true. (?) [SCS mix `motorbrake`, default key: B]"""
-        return self._v[100] != 0
+        return self._v[101] != 0
 
     @motor_brake.setter
     def motor_brake(self, value: bool) -> None:
-        self._v[100] = 1 if value else 0
+        self._v[101] = 1 if value else 0
 
     @property
     def engine_brake_toggle(self) -> bool:
         """[Press] Toggle the engine brake. [SCS mix `engbraketog`]"""
-        return self._v[101] != 0
+        return self._v[102] != 0
 
     @engine_brake_toggle.setter
     def engine_brake_toggle(self, value: bool) -> None:
-        self._v[101] = 1 if value else 0
+        self._v[102] = 1 if value else 0
 
     @property
     def engine_brake_up(self) -> bool:
         """[Press] Engine brake: next stronger level. [SCS mix `engbrakeup`]"""
-        return self._v[102] != 0
+        return self._v[103] != 0
 
     @engine_brake_up.setter
     def engine_brake_up(self, value: bool) -> None:
-        self._v[102] = 1 if value else 0
+        self._v[103] = 1 if value else 0
 
     @property
     def engine_brake_down(self) -> bool:
         """[Press] Engine brake: next weaker level. [SCS mix `engbrakedwn`]"""
-        return self._v[103] != 0
+        return self._v[104] != 0
 
     @engine_brake_down.setter
     def engine_brake_down(self, value: bool) -> None:
-        self._v[103] = 1 if value else 0
+        self._v[104] = 1 if value else 0
 
     @property
     def trailer_brake(self) -> bool:
         """[Hold] Trailer brake only, while true. [SCS mix `trailerbrake`]"""
-        return self._v[104] != 0
+        return self._v[105] != 0
 
     @trailer_brake.setter
     def trailer_brake(self, value: bool) -> None:
-        self._v[104] = 1 if value else 0
+        self._v[105] = 1 if value else 0
 
     @property
     def retarder_up(self) -> bool:
         """[Press] Retarder: next stronger level. [SCS mix `retarderup`, default key: ;]"""
-        return self._v[105] != 0
+        return self._v[106] != 0
 
     @retarder_up.setter
     def retarder_up(self, value: bool) -> None:
-        self._v[105] = 1 if value else 0
+        self._v[106] = 1 if value else 0
 
     @property
     def retarder_down(self) -> bool:
         """[Press] Retarder: next weaker level. [SCS mix `retarderdown`, default key: ']"""
-        return self._v[106] != 0
+        return self._v[107] != 0
 
     @retarder_down.setter
     def retarder_down(self, value: bool) -> None:
-        self._v[106] = 1 if value else 0
+        self._v[107] = 1 if value else 0
 
     @property
     def retarder_0(self) -> bool:
         """[Press] Set retarder to level 0. [SCS mix `retarder0`]"""
-        return self._v[107] != 0
+        return self._v[108] != 0
 
     @retarder_0.setter
     def retarder_0(self, value: bool) -> None:
-        self._v[107] = 1 if value else 0
+        self._v[108] = 1 if value else 0
 
     @property
     def retarder_1(self) -> bool:
         """[Press] Set retarder to level 1. [SCS mix `retarder1`]"""
-        return self._v[108] != 0
+        return self._v[109] != 0
 
     @retarder_1.setter
     def retarder_1(self, value: bool) -> None:
-        self._v[108] = 1 if value else 0
+        self._v[109] = 1 if value else 0
 
     @property
     def retarder_2(self) -> bool:
         """[Press] Set retarder to level 2. [SCS mix `retarder2`]"""
-        return self._v[109] != 0
+        return self._v[110] != 0
 
     @retarder_2.setter
     def retarder_2(self, value: bool) -> None:
-        self._v[109] = 1 if value else 0
+        self._v[110] = 1 if value else 0
 
     @property
     def retarder_3(self) -> bool:
         """[Press] Set retarder to level 3. [SCS mix `retarder3`]"""
-        return self._v[110] != 0
+        return self._v[111] != 0
 
     @retarder_3.setter
     def retarder_3(self, value: bool) -> None:
-        self._v[110] = 1 if value else 0
+        self._v[111] = 1 if value else 0
 
     @property
     def retarder_4(self) -> bool:
         """[Press] Set retarder to level 4. [SCS mix `retarder4`]"""
-        return self._v[111] != 0
+        return self._v[112] != 0
 
     @retarder_4.setter
     def retarder_4(self, value: bool) -> None:
-        self._v[111] = 1 if value else 0
+        self._v[112] = 1 if value else 0
 
     @property
     def retarder_5(self) -> bool:
         """[Press] Set retarder to level 5. [SCS mix `retarder5`]"""
-        return self._v[112] != 0
+        return self._v[113] != 0
 
     @retarder_5.setter
     def retarder_5(self, value: bool) -> None:
-        self._v[112] = 1 if value else 0
+        self._v[113] = 1 if value else 0
 
     @property
     def lift_axle(self) -> bool:
         """[Press] Raise or lower the truck lift axle. [SCS mix `liftaxle`, default key: U]"""
-        return self._v[113] != 0
+        return self._v[114] != 0
 
     @lift_axle.setter
     def lift_axle(self, value: bool) -> None:
-        self._v[113] = 1 if value else 0
+        self._v[114] = 1 if value else 0
 
     @property
     def lift_axle_trailer(self) -> bool:
         """[Press] Raise or lower the trailer lift axle. [SCS mix `liftaxlet`]"""
-        return self._v[114] != 0
+        return self._v[115] != 0
 
     @lift_axle_trailer.setter
     def lift_axle_trailer(self, value: bool) -> None:
-        self._v[114] = 1 if value else 0
+        self._v[115] = 1 if value else 0
 
     @property
     def slide_axle_forward(self) -> bool:
         """[Hold] Slide the trailer axles forward while true. [SCS mix `slideaxlefwd`]"""
-        return self._v[115] != 0
+        return self._v[116] != 0
 
     @slide_axle_forward.setter
     def slide_axle_forward(self, value: bool) -> None:
-        self._v[115] = 1 if value else 0
+        self._v[116] = 1 if value else 0
 
     @property
     def slide_axle_backward(self) -> bool:
         """[Hold] Slide the trailer axles backward while true. [SCS mix `slideaxlebwd`]"""
-        return self._v[116] != 0
+        return self._v[117] != 0
 
     @slide_axle_backward.setter
     def slide_axle_backward(self, value: bool) -> None:
-        self._v[116] = 1 if value else 0
+        self._v[117] = 1 if value else 0
 
     @property
     def slide_axle_manual(self) -> bool:
         """[Press] Toggle manual trailer axle sliding. (?) [SCS mix `slideaxleman`]"""
-        return self._v[117] != 0
+        return self._v[118] != 0
 
     @slide_axle_manual.setter
     def slide_axle_manual(self, value: bool) -> None:
-        self._v[117] = 1 if value else 0
+        self._v[118] = 1 if value else 0
 
     @property
     def trailer_suspension_up(self) -> bool:
         """[Press] Raise the trailer suspension. [SCS mix `trlrsuspup`]"""
-        return self._v[118] != 0
+        return self._v[119] != 0
 
     @trailer_suspension_up.setter
     def trailer_suspension_up(self, value: bool) -> None:
-        self._v[118] = 1 if value else 0
+        self._v[119] = 1 if value else 0
 
     @property
     def trailer_suspension_down(self) -> bool:
         """[Press] Lower the trailer suspension. [SCS mix `trlrsuspdwn`]"""
-        return self._v[119] != 0
+        return self._v[120] != 0
 
     @trailer_suspension_down.setter
     def trailer_suspension_down(self, value: bool) -> None:
-        self._v[119] = 1 if value else 0
+        self._v[120] = 1 if value else 0
 
     @property
     def differential_lock(self) -> bool:
         """[Press] Toggle the differential lock. [SCS mix `diflock`, default key: V]"""
-        return self._v[120] != 0
+        return self._v[121] != 0
 
     @differential_lock.setter
     def differential_lock(self, value: bool) -> None:
-        self._v[120] = 1 if value else 0
+        self._v[121] = 1 if value else 0
 
     @property
     def window_right_open(self) -> bool:
         """[Hold] Open the right window while true. [SCS mix `rwinopen`]"""
-        return self._v[121] != 0
+        return self._v[122] != 0
 
     @window_right_open.setter
     def window_right_open(self, value: bool) -> None:
-        self._v[121] = 1 if value else 0
+        self._v[122] = 1 if value else 0
 
     @property
     def window_right_close(self) -> bool:
         """[Hold] Close the right window while true. [SCS mix `rwinclose`]"""
-        return self._v[122] != 0
+        return self._v[123] != 0
 
     @window_right_close.setter
     def window_right_close(self, value: bool) -> None:
-        self._v[122] = 1 if value else 0
+        self._v[123] = 1 if value else 0
 
     @property
     def window_left_open(self) -> bool:
         """[Hold] Open the left window while true. [SCS mix `lwinopen`]"""
-        return self._v[123] != 0
+        return self._v[124] != 0
 
     @window_left_open.setter
     def window_left_open(self, value: bool) -> None:
-        self._v[123] = 1 if value else 0
+        self._v[124] = 1 if value else 0
 
     @property
     def window_left_close(self) -> bool:
         """[Hold] Close the left window while true. [SCS mix `lwinclose`]"""
-        return self._v[124] != 0
+        return self._v[125] != 0
 
     @window_left_close.setter
     def window_left_close(self, value: bool) -> None:
-        self._v[124] = 1 if value else 0
+        self._v[125] = 1 if value else 0
+
+    @property
+    def window_shade_left_up(self) -> bool:
+        """[Hold] Raise the left window shade while true. (?) [SCS mix `winlshadeup`]"""
+        return self._v[126] != 0
+
+    @window_shade_left_up.setter
+    def window_shade_left_up(self, value: bool) -> None:
+        self._v[126] = 1 if value else 0
+
+    @property
+    def window_shade_left_down(self) -> bool:
+        """[Hold] Lower the left window shade while true. (?) [SCS mix `winlshadedwn`]"""
+        return self._v[127] != 0
+
+    @window_shade_left_down.setter
+    def window_shade_left_down(self, value: bool) -> None:
+        self._v[127] = 1 if value else 0
+
+    @property
+    def window_shade_right_up(self) -> bool:
+        """[Hold] Raise the right window shade while true. (?) [SCS mix `winrshadeup`]"""
+        return self._v[128] != 0
+
+    @window_shade_right_up.setter
+    def window_shade_right_up(self, value: bool) -> None:
+        self._v[128] = 1 if value else 0
+
+    @property
+    def window_shade_right_down(self) -> bool:
+        """[Hold] Lower the right window shade while true. (?) [SCS mix `winrshadedwn`]"""
+        return self._v[129] != 0
+
+    @window_shade_right_down.setter
+    def window_shade_right_down(self, value: bool) -> None:
+        self._v[129] = 1 if value else 0
+
+    @property
+    def entrance_doors(self) -> bool:
+        """[Press] Open or close the entrance doors. (?) [SCS mix `entrdoors`]"""
+        return self._v[130] != 0
+
+    @entrance_doors.setter
+    def entrance_doors(self, value: bool) -> None:
+        self._v[130] = 1 if value else 0
 
     @property
     def engine_brake_auto(self) -> bool:
         """[Press] Toggle automatic engine brake. [SCS mix `engbrakeauto`]"""
-        return self._v[125] != 0
+        return self._v[131] != 0
 
     @engine_brake_auto.setter
     def engine_brake_auto(self, value: bool) -> None:
-        self._v[125] = 1 if value else 0
+        self._v[131] = 1 if value else 0
 
     @property
     def retarder_auto(self) -> bool:
         """[Press] Toggle automatic retarder. [SCS mix `retarderauto`]"""
-        return self._v[126] != 0
+        return self._v[132] != 0
 
     @retarder_auto.setter
     def retarder_auto(self, value: bool) -> None:
-        self._v[126] = 1 if value else 0
+        self._v[132] = 1 if value else 0
 
     @property
     def embrake(self) -> bool:
         """[Press] EM brake toggle. (?) [SCS mix `embrake`]"""
-        return self._v[127] != 0
+        return self._v[133] != 0
 
     @embrake.setter
     def embrake(self, value: bool) -> None:
-        self._v[127] = 1 if value else 0
+        self._v[133] = 1 if value else 0
 
     @property
     def lane_assist_mode(self) -> bool:
         """[Press] Switch the lane assist mode. (?) [SCS mix `laneassmode`]"""
-        return self._v[128] != 0
+        return self._v[134] != 0
 
     @lane_assist_mode.setter
     def lane_assist_mode(self, value: bool) -> None:
-        self._v[128] = 1 if value else 0
+        self._v[134] = 1 if value else 0
 
     @property
     def transmission_power_mode(self) -> bool:
         """[Press] Switch the transmission power mode. (?) [SCS mix `tranpwrmode`]"""
-        return self._v[129] != 0
+        return self._v[135] != 0
 
     @transmission_power_mode.setter
     def transmission_power_mode(self, value: bool) -> None:
-        self._v[129] = 1 if value else 0
+        self._v[135] = 1 if value else 0
 
     @property
     def parking_brake(self) -> bool:
         """[Press] Toggle the parking brake. [SCS mix `parkingbrake`, default key: Space]"""
-        return self._v[130] != 0
+        return self._v[136] != 0
 
     @parking_brake.setter
     def parking_brake(self, value: bool) -> None:
-        self._v[130] = 1 if value else 0
+        self._v[136] = 1 if value else 0
 
     @property
     def handbrake(self) -> bool:
         """[Hold] Hand brake while true. (?) [SCS mix `handbrake`]"""
-        return self._v[131] != 0
+        return self._v[137] != 0
 
     @handbrake.setter
     def handbrake(self, value: bool) -> None:
-        self._v[131] = 1 if value else 0
+        self._v[137] = 1 if value else 0
 
     @property
     def wipers_step_up(self) -> bool:
         """[Press] Step the wipers to the next higher level. [SCS mix `wipers`, default key: P]"""
-        return self._v[132] != 0
+        return self._v[138] != 0
 
     @wipers_step_up.setter
     def wipers_step_up(self, value: bool) -> None:
-        self._v[132] = 1 if value else 0
+        self._v[138] = 1 if value else 0
 
     @property
     def wipers_step_down(self) -> bool:
         """[Press] Step the wipers to the next lower level. [SCS mix `wipersback`]"""
-        return self._v[133] != 0
+        return self._v[139] != 0
 
     @wipers_step_down.setter
     def wipers_step_down(self, value: bool) -> None:
-        self._v[133] = 1 if value else 0
+        self._v[139] = 1 if value else 0
 
     @property
     def wipers_level_0(self) -> bool:
         """[Press] Set the wipers directly to level 0. [SCS mix `wipers0`]"""
-        return self._v[134] != 0
+        return self._v[140] != 0
 
     @wipers_level_0.setter
     def wipers_level_0(self, value: bool) -> None:
-        self._v[134] = 1 if value else 0
+        self._v[140] = 1 if value else 0
 
     @property
     def wipers_level_1(self) -> bool:
         """[Press] Set the wipers directly to level 1. [SCS mix `wipers1`]"""
-        return self._v[135] != 0
+        return self._v[141] != 0
 
     @wipers_level_1.setter
     def wipers_level_1(self, value: bool) -> None:
-        self._v[135] = 1 if value else 0
+        self._v[141] = 1 if value else 0
 
     @property
     def wipers_level_2(self) -> bool:
         """[Press] Set the wipers directly to level 2. [SCS mix `wipers2`]"""
-        return self._v[136] != 0
+        return self._v[142] != 0
 
     @wipers_level_2.setter
     def wipers_level_2(self, value: bool) -> None:
-        self._v[136] = 1 if value else 0
+        self._v[142] = 1 if value else 0
 
     @property
     def wipers_level_3(self) -> bool:
         """[Press] Set the wipers directly to level 3. [SCS mix `wipers3`]"""
-        return self._v[137] != 0
+        return self._v[143] != 0
 
     @wipers_level_3.setter
     def wipers_level_3(self, value: bool) -> None:
-        self._v[137] = 1 if value else 0
+        self._v[143] = 1 if value else 0
 
     @property
     def wipers_level_4(self) -> bool:
         """[Press] Set the wipers directly to level 4. [SCS mix `wipers4`]"""
-        return self._v[138] != 0
+        return self._v[144] != 0
 
     @wipers_level_4.setter
     def wipers_level_4(self, value: bool) -> None:
-        self._v[138] = 1 if value else 0
+        self._v[144] = 1 if value else 0
 
     @property
     def cruise_control(self) -> bool:
         """[Press] Toggle cruise control. [SCS mix `cruiectrl`, default key: C]"""
-        return self._v[139] != 0
+        return self._v[145] != 0
 
     @cruise_control.setter
     def cruise_control(self, value: bool) -> None:
-        self._v[139] = 1 if value else 0
+        self._v[145] = 1 if value else 0
 
     @property
     def cruise_control_increase(self) -> bool:
         """[Press] Increase the cruise control speed. [SCS mix `cruiectrlinc`]"""
-        return self._v[140] != 0
+        return self._v[146] != 0
 
     @cruise_control_increase.setter
     def cruise_control_increase(self, value: bool) -> None:
-        self._v[140] = 1 if value else 0
+        self._v[146] = 1 if value else 0
 
     @property
     def cruise_control_decrease(self) -> bool:
         """[Press] Decrease the cruise control speed. [SCS mix `cruiectrldec`]"""
-        return self._v[141] != 0
+        return self._v[147] != 0
 
     @cruise_control_decrease.setter
     def cruise_control_decrease(self, value: bool) -> None:
-        self._v[141] = 1 if value else 0
+        self._v[147] = 1 if value else 0
 
     @property
     def cruise_control_resume(self) -> bool:
         """[Press] Resume cruise control at the last set speed. [SCS mix `cruiectrlres`]"""
-        return self._v[142] != 0
+        return self._v[148] != 0
 
     @cruise_control_resume.setter
     def cruise_control_resume(self, value: bool) -> None:
-        self._v[142] = 1 if value else 0
+        self._v[148] = 1 if value else 0
 
     @property
     def acc_mode(self) -> bool:
         """[Press] Switch the adaptive cruise control mode. (?) [SCS mix `accmode`]"""
-        return self._v[143] != 0
+        return self._v[149] != 0
 
     @acc_mode.setter
     def acc_mode(self, value: bool) -> None:
-        self._v[143] = 1 if value else 0
+        self._v[149] = 1 if value else 0
 
     @property
     def lane_assist(self) -> bool:
         """[Press] Toggle lane assist. [SCS mix `laneassist`]"""
-        return self._v[144] != 0
+        return self._v[150] != 0
 
     @lane_assist.setter
     def lane_assist(self, value: bool) -> None:
-        self._v[144] = 1 if value else 0
+        self._v[150] = 1 if value else 0
 
     @property
     def lights_cycle(self) -> bool:
         """[Press] Cycle the lights. [SCS mix `light`, default key: L]"""
-        return self._v[145] != 0
+        return self._v[151] != 0
 
     @lights_cycle.setter
     def lights_cycle(self, value: bool) -> None:
-        self._v[145] = 1 if value else 0
+        self._v[151] = 1 if value else 0
 
     @property
     def lights_off(self) -> bool:
         """[Press] Lights off. [SCS mix `lightoff`]"""
-        return self._v[146] != 0
+        return self._v[152] != 0
 
     @lights_off.setter
     def lights_off(self, value: bool) -> None:
-        self._v[146] = 1 if value else 0
+        self._v[152] = 1 if value else 0
 
     @property
     def lights_parking(self) -> bool:
         """[Press] Parking lights. [SCS mix `lightpark`]"""
-        return self._v[147] != 0
+        return self._v[153] != 0
 
     @lights_parking.setter
     def lights_parking(self, value: bool) -> None:
-        self._v[147] = 1 if value else 0
+        self._v[153] = 1 if value else 0
 
     @property
     def lights_on(self) -> bool:
         """[Press] Low beam on. [SCS mix `lighton`]"""
-        return self._v[148] != 0
+        return self._v[154] != 0
 
     @lights_on.setter
     def lights_on(self, value: bool) -> None:
-        self._v[148] = 1 if value else 0
+        self._v[154] = 1 if value else 0
 
     @property
     def high_beam(self) -> bool:
         """[Press] Toggle the high beams. [SCS mix `hblight`, default key: K]"""
-        return self._v[149] != 0
+        return self._v[155] != 0
 
     @high_beam.setter
     def high_beam(self, value: bool) -> None:
-        self._v[149] = 1 if value else 0
+        self._v[155] = 1 if value else 0
 
     @property
     def blinker_left(self) -> bool:
         """[Press] Left blinker toggle. [SCS mix `lblinker`, default key: []"""
-        return self._v[150] != 0
+        return self._v[156] != 0
 
     @blinker_left.setter
     def blinker_left(self, value: bool) -> None:
-        self._v[150] = 1 if value else 0
+        self._v[156] = 1 if value else 0
 
     @property
     def blinker_left_hold(self) -> bool:
         """[Hold] Left blinker while true. (?) [SCS mix `lblinkerh`]"""
-        return self._v[151] != 0
+        return self._v[157] != 0
 
     @blinker_left_hold.setter
     def blinker_left_hold(self, value: bool) -> None:
-        self._v[151] = 1 if value else 0
+        self._v[157] = 1 if value else 0
 
     @property
     def blinker_right(self) -> bool:
         """[Press] Right blinker toggle. [SCS mix `rblinker`, default key: ]]"""
-        return self._v[152] != 0
+        return self._v[158] != 0
 
     @blinker_right.setter
     def blinker_right(self, value: bool) -> None:
-        self._v[152] = 1 if value else 0
+        self._v[158] = 1 if value else 0
 
     @property
     def blinker_right_hold(self) -> bool:
         """[Hold] Right blinker while true. (?) [SCS mix `rblinkerh`]"""
-        return self._v[153] != 0
+        return self._v[159] != 0
 
     @blinker_right_hold.setter
     def blinker_right_hold(self, value: bool) -> None:
-        self._v[153] = 1 if value else 0
+        self._v[159] = 1 if value else 0
 
     @property
     def hazard_lights(self) -> bool:
         """[Press] Toggle the hazard lights. [SCS mix `flasher4way`, default key: F]"""
-        return self._v[154] != 0
+        return self._v[160] != 0
 
     @hazard_lights.setter
     def hazard_lights(self, value: bool) -> None:
-        self._v[154] = 1 if value else 0
+        self._v[160] = 1 if value else 0
 
     @property
     def show_mirrors(self) -> bool:
         """[Press] Toggle the mirror views. (?) [SCS mix `showmirrors`, default key: F2]"""
-        return self._v[155] != 0
+        return self._v[161] != 0
 
     @show_mirrors.setter
     def show_mirrors(self, value: bool) -> None:
-        self._v[155] = 1 if value else 0
+        self._v[161] = 1 if value else 0
 
     @property
     def show_hud(self) -> bool:
         """[Press] Toggle the HUD. [SCS mix `showhud`, default key: F3]"""
-        return self._v[156] != 0
+        return self._v[162] != 0
 
     @show_hud.setter
     def show_hud(self, value: bool) -> None:
-        self._v[156] = 1 if value else 0
+        self._v[162] = 1 if value else 0
 
     @property
     def navigation_map(self) -> bool:
         """[Press] Toggle the full-screen navigation map. [SCS mix `navmap`, default key: M]"""
-        return self._v[157] != 0
+        return self._v[163] != 0
 
     @navigation_map.setter
     def navigation_map(self, value: bool) -> None:
-        self._v[157] = 1 if value else 0
+        self._v[163] = 1 if value else 0
 
     @property
     def photo_mode(self) -> bool:
         """[Press] Enter or leave photo mode. [SCS mix `photo_mode`, default key: =]"""
-        return self._v[158] != 0
+        return self._v[164] != 0
 
     @photo_mode.setter
     def photo_mode(self, value: bool) -> None:
-        self._v[158] = 1 if value else 0
+        self._v[164] = 1 if value else 0
 
     @property
     def quick_save(self) -> bool:
         """[Press] Quick-save the game. [SCS mix `quicksave`, default key: Scroll Lock]"""
-        return self._v[159] != 0
+        return self._v[165] != 0
 
     @quick_save.setter
     def quick_save(self, value: bool) -> None:
-        self._v[159] = 1 if value else 0
+        self._v[165] = 1 if value else 0
 
     @property
     def quick_load(self) -> bool:
         """[Press] Quick-load the last quick-save. [SCS mix `quickload`]"""
-        return self._v[160] != 0
+        return self._v[166] != 0
 
     @quick_load.setter
     def quick_load(self, value: bool) -> None:
-        self._v[160] = 1 if value else 0
+        self._v[166] = 1 if value else 0
 
     @property
     def aca_quick_reset(self) -> bool:
         """[Press] Advanced coupling assistant quick action. (?) [SCS mix `acaquickr`]"""
-        return self._v[161] != 0
+        return self._v[167] != 0
 
     @aca_quick_reset.setter
     def aca_quick_reset(self, value: bool) -> None:
-        self._v[161] = 1 if value else 0
+        self._v[167] = 1 if value else 0
 
     @property
     def radio(self) -> bool:
         """[Press] Toggle the radio on or off. [SCS mix `radio`, default key: R]"""
-        return self._v[162] != 0
+        return self._v[168] != 0
 
     @radio.setter
     def radio(self, value: bool) -> None:
-        self._v[162] = 1 if value else 0
+        self._v[168] = 1 if value else 0
+
+    @property
+    def radio_toggle(self) -> bool:
+        """[Press] Toggle the radio on or off, separate mix from `radio`. (?) [SCS mix `radiotoggle`]"""
+        return self._v[169] != 0
+
+    @radio_toggle.setter
+    def radio_toggle(self, value: bool) -> None:
+        self._v[169] = 1 if value else 0
 
     @property
     def radio_next(self) -> bool:
         """[Press] Next radio station. [SCS mix `radionext`, default key: Page Down]"""
-        return self._v[163] != 0
+        return self._v[170] != 0
 
     @radio_next.setter
     def radio_next(self, value: bool) -> None:
-        self._v[163] = 1 if value else 0
+        self._v[170] = 1 if value else 0
 
     @property
     def radio_previous(self) -> bool:
         """[Press] Previous radio station. [SCS mix `radioprev`, default key: Page Up]"""
-        return self._v[164] != 0
+        return self._v[171] != 0
 
     @radio_previous.setter
     def radio_previous(self, value: bool) -> None:
-        self._v[164] = 1 if value else 0
+        self._v[171] = 1 if value else 0
 
     @property
     def radio_up(self) -> bool:
         """[Press] Radio up, volume or station. (?) [SCS mix `radioup`]"""
-        return self._v[165] != 0
+        return self._v[172] != 0
 
     @radio_up.setter
     def radio_up(self, value: bool) -> None:
-        self._v[165] = 1 if value else 0
+        self._v[172] = 1 if value else 0
 
     @property
     def radio_down(self) -> bool:
         """[Press] Radio down, volume or station. (?) [SCS mix `radiodown`]"""
-        return self._v[166] != 0
+        return self._v[173] != 0
 
     @radio_down.setter
     def radio_down(self, value: bool) -> None:
-        self._v[166] = 1 if value else 0
+        self._v[173] = 1 if value else 0
+
+    @property
+    def radio_favorite(self) -> bool:
+        """[Press] Radio favorites action (select or mark favorite station). (?) [SCS mix `radiofav`]"""
+        return self._v[174] != 0
+
+    @radio_favorite.setter
+    def radio_favorite(self, value: bool) -> None:
+        self._v[174] = 1 if value else 0
 
     @property
     def display_cycle(self) -> bool:
         """[Press] Cycle the dashboard display page. (?) [SCS mix `display`, default key: I]"""
-        return self._v[167] != 0
+        return self._v[175] != 0
 
     @display_cycle.setter
     def display_cycle(self, value: bool) -> None:
-        self._v[167] = 1 if value else 0
+        self._v[175] = 1 if value else 0
 
     @property
     def quick_park(self) -> bool:
         """[Press] Quick-park the truck. [SCS mix `quickpark`, default key: Q]"""
-        return self._v[168] != 0
+        return self._v[176] != 0
 
     @quick_park.setter
     def quick_park(self, value: bool) -> None:
-        self._v[168] = 1 if value else 0
+        self._v[176] = 1 if value else 0
 
     @property
     def dashboard_map_zoom(self) -> bool:
         """[Press] Change the zoom of the dashboard navigation display. [SCS mix `dashmapzoom`]"""
-        return self._v[169] != 0
+        return self._v[177] != 0
 
     @dashboard_map_zoom.setter
     def dashboard_map_zoom(self, value: bool) -> None:
-        self._v[169] = 1 if value else 0
+        self._v[177] = 1 if value else 0
 
     @property
     def trip_reset(self) -> bool:
         """[Press] Reset the trip meter. [SCS mix `tripreset`]"""
-        return self._v[170] != 0
+        return self._v[178] != 0
 
     @trip_reset.setter
     def trip_reset(self, value: bool) -> None:
-        self._v[170] = 1 if value else 0
+        self._v[178] = 1 if value else 0
 
     @property
     def sidebar_activate(self) -> bool:
         """[Press] Activate the sidebar panel. (?) [SCS mix `sb_activate`, default key: Tab]"""
-        return self._v[171] != 0
+        return self._v[179] != 0
 
     @sidebar_activate.setter
     def sidebar_activate(self, value: bool) -> None:
-        self._v[171] = 1 if value else 0
+        self._v[179] = 1 if value else 0
 
     @property
     def sidebar_swap(self) -> bool:
         """[Press] Swap the sidebar panel. (?) [SCS mix `sb_swap`, default key: Caps Lock]"""
-        return self._v[172] != 0
+        return self._v[180] != 0
 
     @sidebar_swap.setter
     def sidebar_swap(self, value: bool) -> None:
-        self._v[172] = 1 if value else 0
+        self._v[180] = 1 if value else 0
 
     @property
     def infotainment(self) -> bool:
         """[Press] Toggle the infotainment screen. (?) [SCS mix `infotainment`]"""
-        return self._v[173] != 0
+        return self._v[181] != 0
 
     @infotainment.setter
     def infotainment(self, value: bool) -> None:
-        self._v[173] = 1 if value else 0
+        self._v[181] = 1 if value else 0
 
     @property
     def map_center(self) -> bool:
         """[Press] Re-center the map on the truck. [SCS mix `mapcenter`, default key: F]"""
-        return self._v[174] != 0
+        return self._v[182] != 0
 
     @map_center.setter
     def map_center(self, value: bool) -> None:
-        self._v[174] = 1 if value else 0
+        self._v[182] = 1 if value else 0
+
+    @property
+    def parking_cameras(self) -> bool:
+        """[Press] Toggle the parking camera view. (?) [SCS mix `parking_cams`]"""
+        return self._v[183] != 0
+
+    @parking_cameras.setter
+    def parking_cameras(self, value: bool) -> None:
+        self._v[183] = 1 if value else 0
 
     @property
     def photo_reset(self) -> bool:
         """[Press] Reset the photo camera. [SCS mix `photores`, default key: R]"""
-        return self._v[175] != 0
+        return self._v[184] != 0
 
     @photo_reset.setter
     def photo_reset(self, value: bool) -> None:
-        self._v[175] = 1 if value else 0
+        self._v[184] = 1 if value else 0
 
     @property
     def photo_move(self) -> bool:
         """[Hold] Move the photo camera while true. (?) [SCS mix `photomove`, default key: Right mouse button]"""
-        return self._v[176] != 0
+        return self._v[185] != 0
 
     @photo_move.setter
     def photo_move(self, value: bool) -> None:
-        self._v[176] = 1 if value else 0
+        self._v[185] = 1 if value else 0
 
     @property
     def photo_grab(self) -> bool:
         """[Hold] Grab and rotate the photo camera while true. (?) [SCS mix `phototake`, default key: Left mouse button]"""
-        return self._v[177] != 0
+        return self._v[186] != 0
 
     @photo_grab.setter
     def photo_grab(self, value: bool) -> None:
-        self._v[177] = 1 if value else 0
+        self._v[186] = 1 if value else 0
 
     @property
     def photo_forward(self) -> bool:
         """[Hold] Photo camera forward. [SCS mix `photofwd`, default key: W]"""
-        return self._v[178] != 0
+        return self._v[187] != 0
 
     @photo_forward.setter
     def photo_forward(self, value: bool) -> None:
-        self._v[178] = 1 if value else 0
+        self._v[187] = 1 if value else 0
 
     @property
     def photo_backward(self) -> bool:
         """[Hold] Photo camera backward. [SCS mix `photobwd`, default key: S]"""
-        return self._v[179] != 0
+        return self._v[188] != 0
 
     @photo_backward.setter
     def photo_backward(self, value: bool) -> None:
-        self._v[179] = 1 if value else 0
+        self._v[188] = 1 if value else 0
 
     @property
     def photo_left(self) -> bool:
         """[Hold] Photo camera left. [SCS mix `photoleft`, default key: A]"""
-        return self._v[180] != 0
+        return self._v[189] != 0
 
     @photo_left.setter
     def photo_left(self, value: bool) -> None:
-        self._v[180] = 1 if value else 0
+        self._v[189] = 1 if value else 0
 
     @property
     def photo_right(self) -> bool:
         """[Hold] Photo camera right. [SCS mix `photoright`, default key: D]"""
-        return self._v[181] != 0
+        return self._v[190] != 0
 
     @photo_right.setter
     def photo_right(self, value: bool) -> None:
-        self._v[181] = 1 if value else 0
+        self._v[190] = 1 if value else 0
 
     @property
     def photo_up(self) -> bool:
         """[Hold] Photo camera up. [SCS mix `photoup`, default key: Q]"""
-        return self._v[182] != 0
+        return self._v[191] != 0
 
     @photo_up.setter
     def photo_up(self, value: bool) -> None:
-        self._v[182] = 1 if value else 0
+        self._v[191] = 1 if value else 0
 
     @property
     def photo_down(self) -> bool:
         """[Hold] Photo camera down. [SCS mix `photodown`, default key: E]"""
-        return self._v[183] != 0
+        return self._v[192] != 0
 
     @photo_down.setter
     def photo_down(self, value: bool) -> None:
-        self._v[183] = 1 if value else 0
+        self._v[192] = 1 if value else 0
 
     @property
     def photo_roll_left(self) -> bool:
         """[Hold] Roll the photo camera left. [SCS mix `photorolll`, default key: Z]"""
-        return self._v[184] != 0
+        return self._v[193] != 0
 
     @photo_roll_left.setter
     def photo_roll_left(self, value: bool) -> None:
-        self._v[184] = 1 if value else 0
+        self._v[193] = 1 if value else 0
 
     @property
     def photo_roll_right(self) -> bool:
         """[Hold] Roll the photo camera right. [SCS mix `photorollr`, default key: C]"""
-        return self._v[185] != 0
+        return self._v[194] != 0
 
     @photo_roll_right.setter
     def photo_roll_right(self, value: bool) -> None:
-        self._v[185] = 1 if value else 0
+        self._v[194] = 1 if value else 0
 
     @property
     def photo_manager(self) -> bool:
         """[Press] Open the photo manager. (?) [SCS mix `photosman`, default key: M]"""
-        return self._v[186] != 0
+        return self._v[195] != 0
 
     @photo_manager.setter
     def photo_manager(self, value: bool) -> None:
-        self._v[186] = 1 if value else 0
+        self._v[195] = 1 if value else 0
 
     @property
     def photo_options(self) -> bool:
         """[Press] Open the photo options. [SCS mix `photo_opts`, default key: Space]"""
-        return self._v[187] != 0
+        return self._v[196] != 0
 
     @photo_options.setter
     def photo_options(self, value: bool) -> None:
-        self._v[187] = 1 if value else 0
+        self._v[196] = 1 if value else 0
 
     @property
     def photo_snap(self) -> bool:
         """[Press] Take the photo. [SCS mix `photosnap`, default key: Enter]"""
-        return self._v[188] != 0
+        return self._v[197] != 0
 
     @photo_snap.setter
     def photo_snap(self, value: bool) -> None:
-        self._v[188] = 1 if value else 0
+        self._v[197] = 1 if value else 0
 
     @property
     def photo_hide_controls(self) -> bool:
         """[Press] Hide or show the photo mode controls. [SCS mix `photo_hctrl`, default key: H]"""
-        return self._v[189] != 0
+        return self._v[198] != 0
 
     @photo_hide_controls.setter
     def photo_hide_controls(self, value: bool) -> None:
-        self._v[189] = 1 if value else 0
+        self._v[198] = 1 if value else 0
 
     @property
     def photo_names(self) -> bool:
         """[Press] Toggle names in photo mode. (?) [SCS mix `photonames`, default key: N]"""
-        return self._v[190] != 0
+        return self._v[199] != 0
 
     @photo_names.setter
     def photo_names(self, value: bool) -> None:
-        self._v[190] = 1 if value else 0
+        self._v[199] = 1 if value else 0
 
     @property
     def photo_zoom_out(self) -> bool:
         """[Press] Photo camera zoom out by one step. [SCS mix `photozoomout`, default key: Mouse wheel down]"""
-        return self._v[191] != 0
+        return self._v[200] != 0
 
     @photo_zoom_out.setter
     def photo_zoom_out(self, value: bool) -> None:
-        self._v[191] = 1 if value else 0
+        self._v[200] = 1 if value else 0
 
     @property
     def photo_zoom_in(self) -> bool:
         """[Press] Photo camera zoom in by one step. [SCS mix `photozoomin`, default key: Mouse wheel up]"""
-        return self._v[192] != 0
+        return self._v[201] != 0
 
     @photo_zoom_in.setter
     def photo_zoom_in(self, value: bool) -> None:
-        self._v[192] = 1 if value else 0
+        self._v[201] = 1 if value else 0
 
     @property
     def photo_zoom_out_axis(self) -> float:
         """[Axis] Analog photo camera zoom out (0 to 1). [SCS mix `phot_z_j_out`]"""
-        return self._f[193]
+        return self._f[202]
 
     @photo_zoom_out_axis.setter
     def photo_zoom_out_axis(self, value: float) -> None:
-        self._f[193] = value
+        self._f[202] = value
 
     @property
     def photo_zoom_in_axis(self) -> float:
         """[Axis] Analog photo camera zoom in (0 to 1). [SCS mix `phot_z_j_in`]"""
-        return self._f[194]
+        return self._f[203]
 
     @photo_zoom_in_axis.setter
     def photo_zoom_in_axis(self, value: float) -> None:
-        self._f[194] = value
+        self._f[203] = value
 
     @property
     def album_page_up(self) -> bool:
         """[Press] Album: previous page. [SCS mix `album_pgup`, default key: Page Up]"""
-        return self._v[195] != 0
+        return self._v[204] != 0
 
     @album_page_up.setter
     def album_page_up(self, value: bool) -> None:
-        self._v[195] = 1 if value else 0
+        self._v[204] = 1 if value else 0
 
     @property
     def album_page_down(self) -> bool:
         """[Press] Album: next page. [SCS mix `album_pgdn`, default key: Page Down]"""
-        return self._v[196] != 0
+        return self._v[205] != 0
 
     @album_page_down.setter
     def album_page_down(self, value: bool) -> None:
-        self._v[196] = 1 if value else 0
+        self._v[205] = 1 if value else 0
 
     @property
     def album_item_up(self) -> bool:
         """[Press] Album: move the selection up. [SCS mix `album_itup`, default key: Up]"""
-        return self._v[197] != 0
+        return self._v[206] != 0
 
     @album_item_up.setter
     def album_item_up(self, value: bool) -> None:
-        self._v[197] = 1 if value else 0
+        self._v[206] = 1 if value else 0
 
     @property
     def album_item_down(self) -> bool:
         """[Press] Album: move the selection down. [SCS mix `album_itdn`, default key: Down]"""
-        return self._v[198] != 0
+        return self._v[207] != 0
 
     @album_item_down.setter
     def album_item_down(self, value: bool) -> None:
-        self._v[198] = 1 if value else 0
+        self._v[207] = 1 if value else 0
 
     @property
     def album_item_left(self) -> bool:
         """[Press] Album: move the selection left. [SCS mix `album_itlf`, default key: Left]"""
-        return self._v[199] != 0
+        return self._v[208] != 0
 
     @album_item_left.setter
     def album_item_left(self, value: bool) -> None:
-        self._v[199] = 1 if value else 0
+        self._v[208] = 1 if value else 0
 
     @property
     def album_item_right(self) -> bool:
         """[Press] Album: move the selection right. [SCS mix `album_itrg`, default key: Right]"""
-        return self._v[200] != 0
+        return self._v[209] != 0
 
     @album_item_right.setter
     def album_item_right(self, value: bool) -> None:
-        self._v[200] = 1 if value else 0
+        self._v[209] = 1 if value else 0
 
     @property
     def album_item_home(self) -> bool:
         """[Press] Album: jump to the first item. [SCS mix `album_ithm`, default key: Home]"""
-        return self._v[201] != 0
+        return self._v[210] != 0
 
     @album_item_home.setter
     def album_item_home(self, value: bool) -> None:
-        self._v[201] = 1 if value else 0
+        self._v[210] = 1 if value else 0
 
     @property
     def album_item_end(self) -> bool:
         """[Press] Album: jump to the last item. [SCS mix `album_iten`, default key: End]"""
-        return self._v[202] != 0
+        return self._v[211] != 0
 
     @album_item_end.setter
     def album_item_end(self, value: bool) -> None:
-        self._v[202] = 1 if value else 0
+        self._v[211] = 1 if value else 0
 
     @property
     def album_item_activate(self) -> bool:
         """[Press] Album: open the selected item. [SCS mix `album_itac`, default key: Enter / Numpad Enter]"""
-        return self._v[203] != 0
+        return self._v[212] != 0
 
     @album_item_activate.setter
     def album_item_activate(self, value: bool) -> None:
-        self._v[203] = 1 if value else 0
+        self._v[212] = 1 if value else 0
 
     @property
     def album_item_options(self) -> bool:
         """[Press] Album: options for the selected item. (?) [SCS mix `album_itop`, default key: Space]"""
-        return self._v[204] != 0
+        return self._v[213] != 0
 
     @album_item_options.setter
     def album_item_options(self, value: bool) -> None:
-        self._v[204] = 1 if value else 0
+        self._v[213] = 1 if value else 0
 
     @property
     def album_item_delete(self) -> bool:
         """[Press] Album: delete the selected item. [SCS mix `album_itdl`, default key: Delete]"""
-        return self._v[205] != 0
+        return self._v[214] != 0
 
     @album_item_delete.setter
     def album_item_delete(self, value: bool) -> None:
-        self._v[205] = 1 if value else 0
+        self._v[214] = 1 if value else 0
 
     @property
     def walk_forward(self) -> bool:
         """[Hold] Walk forward. [SCS mix `camwalk_for`, default key: W]"""
-        return self._v[206] != 0
+        return self._v[215] != 0
 
     @walk_forward.setter
     def walk_forward(self, value: bool) -> None:
-        self._v[206] = 1 if value else 0
+        self._v[215] = 1 if value else 0
 
     @property
     def walk_backward(self) -> bool:
         """[Hold] Walk backward. [SCS mix `camwalk_back`, default key: S]"""
-        return self._v[207] != 0
+        return self._v[216] != 0
 
     @walk_backward.setter
     def walk_backward(self, value: bool) -> None:
-        self._v[207] = 1 if value else 0
+        self._v[216] = 1 if value else 0
 
     @property
     def walk_right(self) -> bool:
         """[Hold] Walk right. [SCS mix `camwalk_righ`, default key: D]"""
-        return self._v[208] != 0
+        return self._v[217] != 0
 
     @walk_right.setter
     def walk_right(self, value: bool) -> None:
-        self._v[208] = 1 if value else 0
+        self._v[217] = 1 if value else 0
 
     @property
     def walk_left(self) -> bool:
         """[Hold] Walk left. [SCS mix `camwalk_left`, default key: A]"""
-        return self._v[209] != 0
+        return self._v[218] != 0
 
     @walk_left.setter
     def walk_left(self, value: bool) -> None:
-        self._v[209] = 1 if value else 0
+        self._v[218] = 1 if value else 0
 
     @property
     def walk_run(self) -> bool:
         """[Hold] Run while true. [SCS mix `camwalk_run`, default key: Left Shift]"""
-        return self._v[210] != 0
+        return self._v[219] != 0
 
     @walk_run.setter
     def walk_run(self, value: bool) -> None:
-        self._v[210] = 1 if value else 0
+        self._v[219] = 1 if value else 0
 
     @property
     def walk_jump(self) -> bool:
         """[Press] Jump. [SCS mix `camwalk_jump`, default key: Space]"""
-        return self._v[211] != 0
+        return self._v[220] != 0
 
     @walk_jump.setter
     def walk_jump(self, value: bool) -> None:
-        self._v[211] = 1 if value else 0
+        self._v[220] = 1 if value else 0
 
     @property
     def walk_crouch(self) -> bool:
         """[Hold] Crouch while true. [SCS mix `camwalk_crou`, default key: Left Ctrl]"""
-        return self._v[212] != 0
+        return self._v[221] != 0
 
     @walk_crouch.setter
     def walk_crouch(self, value: bool) -> None:
-        self._v[212] = 1 if value else 0
+        self._v[221] = 1 if value else 0
 
     @property
     def walk_look_lr(self) -> float:
         """[Axis] Walking camera look left/right. (?) [SCS mix `camwalk_lr`]"""
-        return self._f[213]
+        return self._f[222]
 
     @walk_look_lr.setter
     def walk_look_lr(self, value: float) -> None:
-        self._f[213] = value
+        self._f[222] = value
 
     @property
     def walk_look_ud(self) -> float:
         """[Axis] Walking camera look up/down. (?) [SCS mix `camwalk_ud`]"""
-        return self._f[214]
+        return self._f[223]
 
     @walk_look_ud.setter
     def walk_look_ud(self, value: float) -> None:
-        self._f[214] = value
+        self._f[223] = value
 
     @property
     def gear_up(self) -> bool:
         """[Press] Shift up one gear. [SCS mix `gearup`, default key: Left Shift / Right Shift]"""
-        return self._v[215] != 0
+        return self._v[224] != 0
 
     @gear_up.setter
     def gear_up(self, value: bool) -> None:
-        self._v[215] = 1 if value else 0
+        self._v[224] = 1 if value else 0
 
     @property
     def gear_down(self) -> bool:
         """[Press] Shift down one gear. [SCS mix `geardown`, default key: Left Ctrl / Right Ctrl]"""
-        return self._v[216] != 0
+        return self._v[225] != 0
 
     @gear_down.setter
     def gear_down(self, value: bool) -> None:
-        self._v[216] = 1 if value else 0
+        self._v[225] = 1 if value else 0
 
     @property
     def gear_neutral(self) -> bool:
         """[Press] Shift to neutral. [SCS mix `gear0`]"""
-        return self._v[217] != 0
+        return self._v[226] != 0
 
     @gear_neutral.setter
     def gear_neutral(self, value: bool) -> None:
-        self._v[217] = 1 if value else 0
+        self._v[226] = 1 if value else 0
 
     @property
     def gear_drive(self) -> bool:
         """[Press] Shift to drive. [SCS mix `geardrive`]"""
-        return self._v[218] != 0
+        return self._v[227] != 0
 
     @gear_drive.setter
     def gear_drive(self, value: bool) -> None:
-        self._v[218] = 1 if value else 0
+        self._v[227] = 1 if value else 0
 
     @property
     def gear_reverse(self) -> bool:
         """[Press] Shift to reverse. [SCS mix `gearreverse`]"""
-        return self._v[219] != 0
+        return self._v[228] != 0
 
     @gear_reverse.setter
     def gear_reverse(self, value: bool) -> None:
-        self._v[219] = 1 if value else 0
+        self._v[228] = 1 if value else 0
 
     @property
     def gear_up_hint(self) -> bool:
         """[Press] Shift up using the shift hint. (?) [SCS mix `gearuphint`]"""
-        return self._v[220] != 0
+        return self._v[229] != 0
 
     @gear_up_hint.setter
     def gear_up_hint(self, value: bool) -> None:
-        self._v[220] = 1 if value else 0
+        self._v[229] = 1 if value else 0
 
     @property
     def gear_down_hint(self) -> bool:
         """[Press] Shift down using the shift hint. (?) [SCS mix `geardownhint`]"""
-        return self._v[221] != 0
+        return self._v[230] != 0
 
     @gear_down_hint.setter
     def gear_down_hint(self, value: bool) -> None:
-        self._v[221] = 1 if value else 0
+        self._v[230] = 1 if value else 0
 
     @property
     def transmission_semi(self) -> bool:
         """[Press] Toggle the semi-automatic transmission mode. (?) [SCS mix `transemi`]"""
-        return self._v[222] != 0
+        return self._v[231] != 0
 
     @transmission_semi.setter
     def transmission_semi(self, value: bool) -> None:
-        self._v[222] = 1 if value else 0
+        self._v[231] = 1 if value else 0
 
     @property
     def drive(self) -> bool:
         """[Press] Select drive. [SCS mix `drive`]"""
-        return self._v[223] != 0
+        return self._v[232] != 0
 
     @drive.setter
     def drive(self, value: bool) -> None:
-        self._v[223] = 1 if value else 0
+        self._v[232] = 1 if value else 0
 
     @property
     def reverse(self) -> bool:
         """[Press] Select reverse. [SCS mix `reverse`]"""
-        return self._v[224] != 0
+        return self._v[233] != 0
 
     @reverse.setter
     def reverse(self, value: bool) -> None:
-        self._v[224] = 1 if value else 0
+        self._v[233] = 1 if value else 0
 
     @property
     def mirror_select_cabin(self) -> bool:
         """[Press] Select the cabin mirror for adjusting. (?) [SCS mix `cmirrorsel`]"""
-        return self._v[225] != 0
+        return self._v[234] != 0
 
     @mirror_select_cabin.setter
     def mirror_select_cabin(self, value: bool) -> None:
-        self._v[225] = 1 if value else 0
+        self._v[234] = 1 if value else 0
 
     @property
     def mirror_select_front(self) -> bool:
         """[Press] Select the front mirror for adjusting. (?) [SCS mix `fmirrorsel`]"""
-        return self._v[226] != 0
+        return self._v[235] != 0
 
     @mirror_select_front.setter
     def mirror_select_front(self, value: bool) -> None:
-        self._v[226] = 1 if value else 0
+        self._v[235] = 1 if value else 0
 
     @property
     def mirror_yaw_left(self) -> bool:
         """[Hold] Turn the selected mirror left while true. [SCS mix `mirroryawl`]"""
-        return self._v[227] != 0
+        return self._v[236] != 0
 
     @mirror_yaw_left.setter
     def mirror_yaw_left(self, value: bool) -> None:
-        self._v[227] = 1 if value else 0
+        self._v[236] = 1 if value else 0
 
     @property
     def mirror_yaw_right(self) -> bool:
         """[Hold] Turn the selected mirror right while true. [SCS mix `mirroryawr`]"""
-        return self._v[228] != 0
+        return self._v[237] != 0
 
     @mirror_yaw_right.setter
     def mirror_yaw_right(self, value: bool) -> None:
-        self._v[228] = 1 if value else 0
+        self._v[237] = 1 if value else 0
 
     @property
     def mirror_pitch_up(self) -> bool:
         """[Hold] Tilt the selected mirror up while true. [SCS mix `mirrorpitu`]"""
-        return self._v[229] != 0
+        return self._v[238] != 0
 
     @mirror_pitch_up.setter
     def mirror_pitch_up(self, value: bool) -> None:
-        self._v[229] = 1 if value else 0
+        self._v[238] = 1 if value else 0
 
     @property
     def mirror_pitch_down(self) -> bool:
         """[Hold] Tilt the selected mirror down while true. (?) [SCS mix `mirrorpitl`]"""
-        return self._v[230] != 0
+        return self._v[239] != 0
 
     @mirror_pitch_down.setter
     def mirror_pitch_down(self, value: bool) -> None:
-        self._v[230] = 1 if value else 0
+        self._v[239] = 1 if value else 0
 
     @property
     def mirror_reset(self) -> bool:
         """[Press] Reset the selected mirror. [SCS mix `mirrorreset`]"""
-        return self._v[231] != 0
+        return self._v[240] != 0
 
     @mirror_reset.setter
     def mirror_reset(self, value: bool) -> None:
-        self._v[231] = 1 if value else 0
+        self._v[240] = 1 if value else 0
 
     @property
     def quick_select_1(self) -> bool:
         """[Press] Quick-select slot 1. [SCS mix `quicksel1`, default key: 1 / Numpad 1]"""
-        return self._v[232] != 0
+        return self._v[241] != 0
 
     @quick_select_1.setter
     def quick_select_1(self, value: bool) -> None:
-        self._v[232] = 1 if value else 0
+        self._v[241] = 1 if value else 0
 
     @property
     def quick_select_2(self) -> bool:
         """[Press] Quick-select slot 2. [SCS mix `quicksel2`, default key: 2 / Numpad 2]"""
-        return self._v[233] != 0
+        return self._v[242] != 0
 
     @quick_select_2.setter
     def quick_select_2(self, value: bool) -> None:
-        self._v[233] = 1 if value else 0
+        self._v[242] = 1 if value else 0
 
     @property
     def quick_select_3(self) -> bool:
         """[Press] Quick-select slot 3. [SCS mix `quicksel3`, default key: 3 / Numpad 3]"""
-        return self._v[234] != 0
+        return self._v[243] != 0
 
     @quick_select_3.setter
     def quick_select_3(self, value: bool) -> None:
-        self._v[234] = 1 if value else 0
+        self._v[243] = 1 if value else 0
 
     @property
     def quick_select_4(self) -> bool:
         """[Press] Quick-select slot 4. [SCS mix `quicksel4`, default key: 4 / Numpad 4]"""
-        return self._v[235] != 0
+        return self._v[244] != 0
 
     @quick_select_4.setter
     def quick_select_4(self, value: bool) -> None:
-        self._v[235] = 1 if value else 0
+        self._v[244] = 1 if value else 0
 
     @property
     def quick_select_5(self) -> bool:
         """[Press] Quick-select slot 5. [SCS mix `quicksel5`, default key: 5 / Numpad 5]"""
-        return self._v[236] != 0
+        return self._v[245] != 0
 
     @quick_select_5.setter
     def quick_select_5(self, value: bool) -> None:
-        self._v[236] = 1 if value else 0
+        self._v[245] = 1 if value else 0
 
     @property
     def quick_select_6(self) -> bool:
         """[Press] Quick-select slot 6. [SCS mix `quicksel6`, default key: 6 / Numpad 6]"""
-        return self._v[237] != 0
+        return self._v[246] != 0
 
     @quick_select_6.setter
     def quick_select_6(self, value: bool) -> None:
-        self._v[237] = 1 if value else 0
+        self._v[246] = 1 if value else 0
 
     @property
     def quick_select_7(self) -> bool:
         """[Press] Quick-select slot 7. [SCS mix `quicksel7`, default key: 7 / Numpad 7]"""
-        return self._v[238] != 0
+        return self._v[247] != 0
 
     @quick_select_7.setter
     def quick_select_7(self, value: bool) -> None:
-        self._v[238] = 1 if value else 0
+        self._v[247] = 1 if value else 0
 
     @property
     def quick_select_8(self) -> bool:
         """[Press] Quick-select slot 8. [SCS mix `quicksel8`, default key: 8 / Numpad 8]"""
-        return self._v[239] != 0
+        return self._v[248] != 0
 
     @quick_select_8.setter
     def quick_select_8(self, value: bool) -> None:
-        self._v[239] = 1 if value else 0
+        self._v[248] = 1 if value else 0
 
     @property
     def push_to_talk(self) -> bool:
         """[Hold] Multiplayer push-to-talk while true. [SCS mix `mpptt`, default key: X]"""
-        return self._v[240] != 0
+        return self._v[249] != 0
 
     @push_to_talk.setter
     def push_to_talk(self, value: bool) -> None:
-        self._v[240] = 1 if value else 0
+        self._v[249] = 1 if value else 0
 
     @property
     def replay_hide_controls(self) -> bool:
         """[Press] Hide or show the replay controls. [SCS mix `replayhidec`, default key: H]"""
-        return self._v[241] != 0
+        return self._v[250] != 0
 
     @replay_hide_controls.setter
     def replay_hide_controls(self, value: bool) -> None:
-        self._v[241] = 1 if value else 0
+        self._v[250] = 1 if value else 0
 
     @property
     def gear_selector_1_on(self) -> bool:
         """[Press] Gear selector 1 on. (?) [SCS mix `gearsel1on`]"""
-        return self._v[242] != 0
+        return self._v[251] != 0
 
     @gear_selector_1_on.setter
     def gear_selector_1_on(self, value: bool) -> None:
-        self._v[242] = 1 if value else 0
+        self._v[251] = 1 if value else 0
 
     @property
     def gear_selector_1_off(self) -> bool:
         """[Press] Gear selector 1 off. (?) [SCS mix `gearsel1off`]"""
-        return self._v[243] != 0
+        return self._v[252] != 0
 
     @gear_selector_1_off.setter
     def gear_selector_1_off(self, value: bool) -> None:
-        self._v[243] = 1 if value else 0
+        self._v[252] = 1 if value else 0
 
     @property
     def gear_selector_1_toggle(self) -> bool:
         """[Press] Gear selector 1 toggle. (?) [SCS mix `gearsel1tgl`]"""
-        return self._v[244] != 0
+        return self._v[253] != 0
 
     @gear_selector_1_toggle.setter
     def gear_selector_1_toggle(self, value: bool) -> None:
-        self._v[244] = 1 if value else 0
+        self._v[253] = 1 if value else 0
 
     @property
     def gear_selector_2_on(self) -> bool:
         """[Press] Gear selector 2 on. (?) [SCS mix `gearsel2on`]"""
-        return self._v[245] != 0
+        return self._v[254] != 0
 
     @gear_selector_2_on.setter
     def gear_selector_2_on(self, value: bool) -> None:
-        self._v[245] = 1 if value else 0
+        self._v[254] = 1 if value else 0
 
     @property
     def gear_selector_2_off(self) -> bool:
         """[Press] Gear selector 2 off. (?) [SCS mix `gearsel2off`]"""
-        return self._v[246] != 0
+        return self._v[255] != 0
 
     @gear_selector_2_off.setter
     def gear_selector_2_off(self, value: bool) -> None:
-        self._v[246] = 1 if value else 0
+        self._v[255] = 1 if value else 0
 
     @property
     def gear_selector_2_toggle(self) -> bool:
         """[Press] Gear selector 2 toggle. (?) [SCS mix `gearsel2tgl`]"""
-        return self._v[247] != 0
+        return self._v[256] != 0
 
     @gear_selector_2_toggle.setter
     def gear_selector_2_toggle(self, value: bool) -> None:
-        self._v[247] = 1 if value else 0
+        self._v[256] = 1 if value else 0
 
     @property
     def gear_1(self) -> bool:
         """[Press] Select gear 1 directly. [SCS mix `gear1`]"""
-        return self._v[248] != 0
+        return self._v[257] != 0
 
     @gear_1.setter
     def gear_1(self, value: bool) -> None:
-        self._v[248] = 1 if value else 0
+        self._v[257] = 1 if value else 0
 
     @property
     def gear_2(self) -> bool:
         """[Press] Select gear 2 directly. [SCS mix `gear2`]"""
-        return self._v[249] != 0
+        return self._v[258] != 0
 
     @gear_2.setter
     def gear_2(self, value: bool) -> None:
-        self._v[249] = 1 if value else 0
+        self._v[258] = 1 if value else 0
 
     @property
     def gear_3(self) -> bool:
         """[Press] Select gear 3 directly. [SCS mix `gear3`]"""
-        return self._v[250] != 0
+        return self._v[259] != 0
 
     @gear_3.setter
     def gear_3(self, value: bool) -> None:
-        self._v[250] = 1 if value else 0
+        self._v[259] = 1 if value else 0
 
     @property
     def gear_4(self) -> bool:
         """[Press] Select gear 4 directly. [SCS mix `gear4`]"""
-        return self._v[251] != 0
+        return self._v[260] != 0
 
     @gear_4.setter
     def gear_4(self, value: bool) -> None:
-        self._v[251] = 1 if value else 0
+        self._v[260] = 1 if value else 0
 
     @property
     def gear_5(self) -> bool:
         """[Press] Select gear 5 directly. [SCS mix `gear5`]"""
-        return self._v[252] != 0
+        return self._v[261] != 0
 
     @gear_5.setter
     def gear_5(self, value: bool) -> None:
-        self._v[252] = 1 if value else 0
+        self._v[261] = 1 if value else 0
 
     @property
     def gear_6(self) -> bool:
         """[Press] Select gear 6 directly. [SCS mix `gear6`]"""
-        return self._v[253] != 0
+        return self._v[262] != 0
 
     @gear_6.setter
     def gear_6(self, value: bool) -> None:
-        self._v[253] = 1 if value else 0
+        self._v[262] = 1 if value else 0
 
     @property
     def gear_7(self) -> bool:
         """[Press] Select gear 7 directly. [SCS mix `gear7`]"""
-        return self._v[254] != 0
+        return self._v[263] != 0
 
     @gear_7.setter
     def gear_7(self, value: bool) -> None:
-        self._v[254] = 1 if value else 0
+        self._v[263] = 1 if value else 0
 
     @property
     def gear_8(self) -> bool:
         """[Press] Select gear 8 directly. [SCS mix `gear8`]"""
-        return self._v[255] != 0
+        return self._v[264] != 0
 
     @gear_8.setter
     def gear_8(self, value: bool) -> None:
-        self._v[255] = 1 if value else 0
+        self._v[264] = 1 if value else 0
 
     @property
     def gear_9(self) -> bool:
         """[Press] Select gear 9 directly. [SCS mix `gear9`]"""
-        return self._v[256] != 0
+        return self._v[265] != 0
 
     @gear_9.setter
     def gear_9(self, value: bool) -> None:
-        self._v[256] = 1 if value else 0
+        self._v[265] = 1 if value else 0
 
     @property
     def gear_10(self) -> bool:
         """[Press] Select gear 10 directly. [SCS mix `gear10`]"""
-        return self._v[257] != 0
+        return self._v[266] != 0
 
     @gear_10.setter
     def gear_10(self, value: bool) -> None:
-        self._v[257] = 1 if value else 0
+        self._v[266] = 1 if value else 0
 
     @property
     def gear_11(self) -> bool:
         """[Press] Select gear 11 directly. [SCS mix `gear11`]"""
-        return self._v[258] != 0
+        return self._v[267] != 0
 
     @gear_11.setter
     def gear_11(self, value: bool) -> None:
-        self._v[258] = 1 if value else 0
+        self._v[267] = 1 if value else 0
 
     @property
     def gear_12(self) -> bool:
         """[Press] Select gear 12 directly. [SCS mix `gear12`]"""
-        return self._v[259] != 0
+        return self._v[268] != 0
 
     @gear_12.setter
     def gear_12(self, value: bool) -> None:
-        self._v[259] = 1 if value else 0
+        self._v[268] = 1 if value else 0
 
     @property
     def gear_13(self) -> bool:
         """[Press] Select gear 13 directly. [SCS mix `gear13`]"""
-        return self._v[260] != 0
+        return self._v[269] != 0
 
     @gear_13.setter
     def gear_13(self, value: bool) -> None:
-        self._v[260] = 1 if value else 0
+        self._v[269] = 1 if value else 0
 
     @property
     def gear_14(self) -> bool:
         """[Press] Select gear 14 directly. [SCS mix `gear14`]"""
-        return self._v[261] != 0
+        return self._v[270] != 0
 
     @gear_14.setter
     def gear_14(self, value: bool) -> None:
-        self._v[261] = 1 if value else 0
+        self._v[270] = 1 if value else 0
 
     @property
     def gear_15(self) -> bool:
         """[Press] Select gear 15 directly. [SCS mix `gear15`]"""
-        return self._v[262] != 0
+        return self._v[271] != 0
 
     @gear_15.setter
     def gear_15(self, value: bool) -> None:
-        self._v[262] = 1 if value else 0
+        self._v[271] = 1 if value else 0
 
     @property
     def gear_16(self) -> bool:
         """[Press] Select gear 16 directly. [SCS mix `gear16`]"""
-        return self._v[263] != 0
+        return self._v[272] != 0
 
     @gear_16.setter
     def gear_16(self, value: bool) -> None:
-        self._v[263] = 1 if value else 0
+        self._v[272] = 1 if value else 0
 
     @property
     def adjuster(self) -> bool:
         """[Press] Open the seat/mirror/light adjuster. [SCS mix `adjuster`, default key: F4]"""
-        return self._v[264] != 0
+        return self._v[273] != 0
 
     @adjuster.setter
     def adjuster(self, value: bool) -> None:
-        self._v[264] = 1 if value else 0
+        self._v[273] = 1 if value else 0
 
     @property
     def advisor_mouse(self) -> bool:
         """[Press] Advisor: toggle mouse control. (?) [SCS mix `advmouse`, default key: F1]"""
-        return self._v[265] != 0
+        return self._v[274] != 0
 
     @advisor_mouse.setter
     def advisor_mouse(self, value: bool) -> None:
-        self._v[265] = 1 if value else 0
+        self._v[274] = 1 if value else 0
 
     @property
     def advisor_eta_mode(self) -> bool:
         """[Press] Advisor: switch the ETA mode. (?) [SCS mix `advetamode`]"""
-        return self._v[266] != 0
+        return self._v[275] != 0
 
     @advisor_eta_mode.setter
     def advisor_eta_mode(self, value: bool) -> None:
-        self._v[266] = 1 if value else 0
+        self._v[275] = 1 if value else 0
 
     @property
     def garage_manager(self) -> bool:
         """[Press] Open the garage manager. (?) [SCS mix `gar_man`, default key: G]"""
-        return self._v[267] != 0
+        return self._v[276] != 0
 
     @garage_manager.setter
     def garage_manager(self, value: bool) -> None:
-        self._v[267] = 1 if value else 0
+        self._v[276] = 1 if value else 0
 
     @property
     def advisor_zoom_in(self) -> bool:
         """[Press] Advisor: zoom in. (?) [SCS mix `advzoomin`]"""
-        return self._v[268] != 0
+        return self._v[277] != 0
 
     @advisor_zoom_in.setter
     def advisor_zoom_in(self, value: bool) -> None:
-        self._v[268] = 1 if value else 0
+        self._v[277] = 1 if value else 0
 
     @property
     def advisor_zoom_out(self) -> bool:
         """[Press] Advisor: zoom out. (?) [SCS mix `advzoomout`, default key: F5]"""
-        return self._v[269] != 0
+        return self._v[278] != 0
 
     @advisor_zoom_out.setter
     def advisor_zoom_out(self, value: bool) -> None:
-        self._v[269] = 1 if value else 0
+        self._v[278] = 1 if value else 0
 
     @property
     def advisor_options(self) -> bool:
         """[Press] Advisor: open the options. [SCS mix `advoptions`, default key: F6]"""
-        return self._v[270] != 0
+        return self._v[279] != 0
 
     @advisor_options.setter
     def advisor_options(self, value: bool) -> None:
-        self._v[270] = 1 if value else 0
+        self._v[279] = 1 if value else 0
 
     @property
     def advisor_services(self) -> bool:
         """[Press] Advisor: open the services. [SCS mix `services`, default key: F7]"""
-        return self._v[271] != 0
+        return self._v[280] != 0
 
     @advisor_services.setter
     def advisor_services(self, value: bool) -> None:
-        self._v[271] = 1 if value else 0
+        self._v[280] = 1 if value else 0
 
     @property
     def assist_action_1(self) -> bool:
         """[Press] Driving assist action 1. (?) [SCS mix `assistact1`, default key: 1]"""
-        return self._v[272] != 0
+        return self._v[281] != 0
 
     @assist_action_1.setter
     def assist_action_1(self, value: bool) -> None:
-        self._v[272] = 1 if value else 0
+        self._v[281] = 1 if value else 0
 
     @property
     def assist_action_2(self) -> bool:
         """[Press] Driving assist action 2. (?) [SCS mix `assistact2`, default key: 2]"""
-        return self._v[273] != 0
+        return self._v[282] != 0
 
     @assist_action_2.setter
     def assist_action_2(self, value: bool) -> None:
-        self._v[273] = 1 if value else 0
+        self._v[282] = 1 if value else 0
 
     @property
     def assist_action_3(self) -> bool:
         """[Press] Driving assist action 3. (?) [SCS mix `assistact3`, default key: 3]"""
-        return self._v[274] != 0
+        return self._v[283] != 0
 
     @assist_action_3.setter
     def assist_action_3(self, value: bool) -> None:
-        self._v[274] = 1 if value else 0
+        self._v[283] = 1 if value else 0
 
     @property
     def assist_action_4(self) -> bool:
         """[Press] Driving assist action 4. (?) [SCS mix `assistact4`, default key: 4]"""
-        return self._v[275] != 0
+        return self._v[284] != 0
 
     @assist_action_4.setter
     def assist_action_4(self, value: bool) -> None:
-        self._v[275] = 1 if value else 0
+        self._v[284] = 1 if value else 0
 
     @property
     def assist_action_5(self) -> bool:
         """[Press] Driving assist action 5. (?) [SCS mix `assistact5`, default key: 5]"""
-        return self._v[276] != 0
+        return self._v[285] != 0
 
     @assist_action_5.setter
     def assist_action_5(self, value: bool) -> None:
-        self._v[276] = 1 if value else 0
+        self._v[285] = 1 if value else 0
+
+    @property
+    def assist_action_6(self) -> bool:
+        """[Press] Driving assist action 6. (?) [SCS mix `assistact6`, default key: 6]"""
+        return self._v[286] != 0
+
+    @assist_action_6.setter
+    def assist_action_6(self, value: bool) -> None:
+        self._v[286] = 1 if value else 0
 
     @property
     def adjust_seats(self) -> bool:
         """[Press] Adjuster: seats. [SCS mix `adj_seats`, default key: 1]"""
-        return self._v[277] != 0
+        return self._v[287] != 0
 
     @adjust_seats.setter
     def adjust_seats(self, value: bool) -> None:
-        self._v[277] = 1 if value else 0
+        self._v[287] = 1 if value else 0
 
     @property
     def adjust_mirrors(self) -> bool:
         """[Press] Adjuster: mirrors. [SCS mix `adj_mirrors`, default key: 2]"""
-        return self._v[278] != 0
+        return self._v[288] != 0
 
     @adjust_mirrors.setter
     def adjust_mirrors(self, value: bool) -> None:
-        self._v[278] = 1 if value else 0
+        self._v[288] = 1 if value else 0
 
     @property
     def adjust_lights(self) -> bool:
         """[Press] Adjuster: lights. [SCS mix `adj_lights`, default key: 3]"""
-        return self._v[279] != 0
+        return self._v[289] != 0
 
     @adjust_lights.setter
     def adjust_lights(self, value: bool) -> None:
-        self._v[279] = 1 if value else 0
+        self._v[289] = 1 if value else 0
 
     @property
     def adjust_ui_mirror(self) -> bool:
         """[Press] Adjuster: UI mirror. (?) [SCS mix `adj_uimirror`, default key: 4]"""
-        return self._v[280] != 0
+        return self._v[290] != 0
 
     @adjust_ui_mirror.setter
     def adjust_ui_mirror(self, value: bool) -> None:
-        self._v[280] = 1 if value else 0
+        self._v[290] = 1 if value else 0
 
     @property
     def chat_open(self) -> bool:
         """[Press] Open the multiplayer chat input. [SCS mix `chat_act`, default key: Y]"""
-        return self._v[281] != 0
+        return self._v[291] != 0
 
     @chat_open.setter
     def chat_open(self, value: bool) -> None:
-        self._v[281] = 1 if value else 0
+        self._v[291] = 1 if value else 0
 
     @property
     def quick_chat(self) -> bool:
         """[Press] Open the multiplayer quick-chat wheel. (?) [SCS mix `quick_chat`, default key: Q]"""
-        return self._v[282] != 0
+        return self._v[292] != 0
 
     @quick_chat.setter
     def quick_chat(self, value: bool) -> None:
-        self._v[282] = 1 if value else 0
+        self._v[292] = 1 if value else 0
 
     @property
     def zoom_cycle(self) -> bool:
         """[Press] Cycle through the zoom levels of the current view. [SCS mix `cycl_zoom`, default key: Tab]"""
-        return self._v[283] != 0
+        return self._v[293] != 0
 
     @zoom_cycle.setter
     def zoom_cycle(self, value: bool) -> None:
-        self._v[283] = 1 if value else 0
+        self._v[293] = 1 if value else 0
 
     @property
     def name_tags(self) -> bool:
         """[Press] Toggle player name tags in multiplayer. [SCS mix `name_tags`, default key: Z]"""
-        return self._v[284] != 0
+        return self._v[294] != 0
 
     @name_tags.setter
     def name_tags(self, value: bool) -> None:
-        self._v[284] = 1 if value else 0
+        self._v[294] = 1 if value else 0
 
     @property
     def head_reset(self) -> bool:
         """[Press] Re-center head tracking or VR view. [SCS mix `headreset`, default key: F12]"""
-        return self._v[285] != 0
+        return self._v[295] != 0
 
     @head_reset.setter
     def head_reset(self, value: bool) -> None:
-        self._v[285] = 1 if value else 0
+        self._v[295] = 1 if value else 0
 
     @property
     def stereo_menu(self) -> bool:
         """[Press] Toggle the stereo or VR menu mode. (?) [SCS mix `menustereo`, default key: F11]"""
-        return self._v[286] != 0
+        return self._v[296] != 0
 
     @stereo_menu.setter
     def stereo_menu(self, value: bool) -> None:
-        self._v[286] = 1 if value else 0
+        self._v[296] = 1 if value else 0

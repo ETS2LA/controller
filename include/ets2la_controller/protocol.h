@@ -11,7 +11,7 @@ namespace ets2la_controller {
 constexpr uint32_t kMagic = 0x434C5445;      // "ETLC"
 
 // Bump whenever ControlBlock/InputBlock layout or semantics change in any way.
-constexpr uint32_t kProtocolVersion = 1;
+constexpr uint32_t kProtocolVersion = 2;
 
 constexpr uint32_t kMaxInputs = 400;         // capacity of the value tables
 constexpr uint32_t kMaxClients = 32;         // heartbeat table size

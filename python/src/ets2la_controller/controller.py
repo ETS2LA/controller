@@ -19,7 +19,7 @@ CLIENT_TIMEOUT_MS = 3000
 HEARTBEAT_INTERVAL_S = 0.25
 
 # Bump whenever ControlBlock/InputBlock layout or semantics change in any way.
-PROTOCOL_VERSION = 1
+PROTOCOL_VERSION = 2
 
 CTL_MAGIC = 0
 CTL_VERSION = 4

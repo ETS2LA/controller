@@ -151,6 +151,8 @@ slideaxlefwd | slide_axle_forward | H | Slide the trailer axles forward while tr
 slideaxlebwd | slide_axle_backward | H | Slide the trailer axles backward while true.
 slideaxleman | slide_axle_manual | P | Toggle manual trailer axle sliding. (?)
 attach | attach_trailer | P | Attach or detach the trailer.
+entrdoors | entrance_doors | P | Open or close the entrance doors. (?)
+parking_cams | parking_cameras | P | Toggle the parking camera view. (?)
 
 # Engine and ignition
 engine | engine_toggle | P | Toggle the engine on or off.
@@ -214,6 +216,7 @@ lblinkerh | blinker_left_hold | H | Left blinker while true. (?)
 rblinker | blinker_right | P | Right blinker toggle.
 rblinkerh | blinker_right_hold | H | Right blinker while true. (?)
 flasher4way | hazard_lights | P | Toggle the hazard lights.
+cabinlight | cabin_light | P | Toggle the cabin light. (?)
 
 # Wipers
 wipers | wipers_step_up | P | Step the wipers to the next higher level.
@@ -229,6 +232,10 @@ rwinopen | window_right_open | H | Open the right window while true.
 rwinclose | window_right_close | H | Close the right window while true.
 lwinopen | window_left_open | H | Open the left window while true.
 lwinclose | window_left_close | H | Close the left window while true.
+winrshadeup | window_shade_right_up | H | Raise the right window shade while true. (?)
+winrshadedwn | window_shade_right_down | H | Lower the right window shade while true. (?)
+winlshadeup | window_shade_left_up | H | Raise the left window shade while true. (?)
+winlshadedwn | window_shade_left_down | H | Lower the left window shade while true. (?)
 cmirrorsel | mirror_select_cabin | P | Select the cabin mirror for adjusting. (?)
 fmirrorsel | mirror_select_front | P | Select the front mirror for adjusting. (?)
 mirroryawl | mirror_yaw_left | H | Turn the selected mirror left while true.
@@ -248,6 +255,8 @@ radionext | radio_next | P | Next radio station.
 radioprev | radio_previous | P | Previous radio station.
 radioup | radio_up | P | Radio up, volume or station. (?)
 radiodown | radio_down | P | Radio down, volume or station. (?)
+radiotoggle | radio_toggle | P | Toggle the radio on or off, separate mix from `radio`. (?)
+radiofav | radio_favorite | P | Radio favorites action (select or mark favorite station). (?)
 
 # Save, load and quick menus
 quicksave | quick_save | P | Quick-save the game.
@@ -276,6 +285,7 @@ assistact2 | assist_action_2 | P | Driving assist action 2. (?)
 assistact3 | assist_action_3 | P | Driving assist action 3. (?)
 assistact4 | assist_action_4 | P | Driving assist action 4. (?)
 assistact5 | assist_action_5 | P | Driving assist action 5. (?)
+assistact6 | assist_action_6 | P | Driving assist action 6. (?)
 
 # Photo mode
 photo_mode | photo_mode | P | Enter or leave photo mode.
