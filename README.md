@@ -2,8 +2,7 @@
 
 # ets2la_controller
 
-In-process input injection for Euro Truck Simulator 2 / American Truck Simulator.
-It registers a semantical input device with the game's input SDK and lets any number of clients control inputs like steering, pedals, gears, lights, wipers, cameras, menus, etc. through shared memory.
+ets2la_controller is a DLL plugin for Euro Truck Simulator 2 and American Truck Simulator that lets any number of clients send inputs to the game through shared memory, with minimal latency between a client writing a value and the game applying it.
 
 Every input, its type and what it does, see `docs/CONTROLS.md`.
 
